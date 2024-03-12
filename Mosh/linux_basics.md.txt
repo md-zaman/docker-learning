@@ -1,0 +1,8 @@
+1. Linux is an opensource OS
+
+2. Using ubuntu on docker:
+a. Instead of using docker pull ubuntu the shortcut can be:
+    docker run ubuntu
+    (If the image exists then it will simply run but if it doesn't exixts, it will pull and run)
+
+3. 
