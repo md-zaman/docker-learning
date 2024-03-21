@@ -1268,6 +1268,364 @@ Create a Repository
 
 lesson44 - Saving and Loading Images
 
+1. Saving an image into a file:
+    If you have an image on your machine and want to share it to another 
+    machine without going through dockerhub, you can simply save and 
+    compress the image in '.tar' file (.tar is a zip file for linux) then 
+    copy it to your desired machine and then load it. (unzip it
+    basically). Here is the command:
+    docker image save -o react-app.tar react-app:3
+    - saves and compresses the image 'react-app:3' to 'react-app.tar'
+    - '-o' option means to output the file in 'react-app.tar'
+
+2. Loading (uncompressing the image) an image from a file:
+    Once we have the '.tar' file, we can load or unzip the image and 
+    get it on the machine. The command for this is:
+    docker image load -i react-app.tar
+    - loads an image from the '.tar' file
+    - option '-i' mean the input file which here is 'react-app.tar'
+
+
+lesson45 - Working with Containers
+
+
+Intro about the Section that we are going to learn about containers here.
+
+lesson46 - Starting Containers
+
+1. Using containers in detached mode:
+    If you start a container, it will start running but you cannot do 
+    anything in it. If you press 'ctrl+c' the container stops. So, to
+    ensure that if runs in the background and you can use the terminal, 
+    we can run the container in detached mode:
+    docker run -d react-app
+    - runs 'react-app' container in detached mode (in the background)
+    - meanwhile, we can use ther terminal
+
+2. Naming a container:
+    Docker give each container a random name. If can use the name as a 
+    reference. We can also give that name using the following command:
+    docker run -d --name blue-sky react-app
+    - runs the 'react-app' container in detached mode and nomes it 
+        'blue-sky'
+
+lesson47 - Viewing the Logs
+
+1. To view all the logs inside a container:
+    docker logs 655
+    - displays the logs of the container having the ID '655' 
+
+2. Viewing the flags associated with docker commands:
+    Whenever you want to play around with a docker command, always use 
+    '--help' after the command. E.g.,
+    docker logs --help
+    - displays all the options related with the command 'docker logs'
+
+3. Few important options/flags:
+    - f : follows the logs in realtime
+    - n : No. of lines of the logs to show from the end of the logs
+    - t : Show timestamps
+
+
+lesson48 - Publishing Ports
+
+1. We cannot access a container on our localhost in the above example 
+    although we have exposed it to the port '3000' in its Dockerfile 
+    because 'PORT 3000' in the Dockerfile means it is exposed to the 
+    container's '3000' port not our machine's localhost.
+
+2. To map a port we use the following command:
+    docker run -d -p 80:3000 --name c1 react-app
+    - runs a container. 
+    - the flag '-p 80:3000' means port mapping the 1st port is the host 
+        port and 2nd port is container's port.
+        80 is host port
+        3000 is container's port
+
+lesson49 - Executing Commands in Running Containers
+
+1. We can execute commands in a running container using the following
+    by:
+    docker exec c1 ls
+    - displays the content of our '/app' directory. It is viewing the 
+        '/app' directory because in the Dockerfile of c1. We had 
+        mentioned '/app' as the WORKDIR.
+    - using the exec command, we can also open up a shell session:
+    docker exec -it c1 sh
+    - opens a container in interactive mode and in shell session.
+
+
+2. Difference between 'run' and 'exec':
+    run is used to start a NEW container. 
+    exec is used to access the existing container
+
+
+lesson50 - Stopping and Starting Containers
+
+1. To stop a running container:
+    docker stop c1
+    - stops a running container
+
+2. docker start c1
+    - start a new container
+
+3. Difference between 'start' and 'run' is 
+    'start' is used in stopped containers while 'run' is used in new 
+        containers.
+
+
+lesson51 - Removing Containers
+
+1. There are two command to remove a container:
+    a. docker container rm c1
+    b. docker rm c1 (We will be using this one henceforth)
+
+2. Remove a container:
+    docker rm c1
+    
+3. A conatiner cannot be removed if it is running. So, if you want to 
+    remove it either stop it first and then remove it or you can force 
+    remove it by:
+    docker rm -f c1
+    - removes a container by force
+
+4. To remove all the stopped containers in one go:
+    docker container prune
+
+
+lesson52 - Containers File System
+
+1. Each container has its own file system invisible to other containers.
+    Once a containers is deleted its file system will be deleted, so we 
+    never store anything in our containers. We should use volumes for 
+    that.
+
+lesson53 - Persisting Data using Volumes
+
+1. A volume is a storage outside of containers. It can be directory in 
+    host or somewhere in the cloud.
+
+    docker volume
+    - lists other sub-commands
+
+2. Create a volume:
+    docker volume create app-data
+    - creates a volume
+
+3. To inspects the volume:
+    docker volume inspect app-data
+    - shows details about the volume
+    - looks something like:
+    [
+        {
+        "CreatedAt": "2021-03-16T21:16:41Z",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/app-data/_data",
+        "Name": "app-data",
+        "Options": {},
+        "Scope": "local"
+        }
+    ]
+
+4. An example of how to map and few explainations:
+    docker run -d -p 4000:3000 -v app-data:/app/data react-app
+    - maps a volume in host directory
+    - in case we don't create 'app-data' directory, docker will create a
+        volume
+    - in case we don't have a directory '/app/data' already created,
+        docker will create the same
+    - in this example, we may get the error of permission when we go 
+        inside the container and try to create a file. This is because
+        when we run this container we let the 'data' directory created 
+        by the docker itself, meaning the 'root' user so 'app' user will 
+        not have the access of modifying the file.
+    - So, we need to ensure that the 'app' user creates the directory 
+        and we can make these changes in the Dockerfile.
+
+        This is 'named' volume.
+
+5. Even if a container is deleted the data persists because of the volume
+
+6. We can map this volume with other containers as well
+
+
+lesson54 - Copying Files between the Host and Containers
+
+1. We can copy files from the container to our host
+
+2. we can use the 'cp' command to copy to and from a container
+
+3. Copy from a container to our host:
+    docker cp e1c90:/app/log.txt .
+    docker cp <container_id>:<container_path> <host_path>
+    - copies a file from a container to host
+
+4. Copy from from the host to the container:
+    docker cp secret.txt e1c90:/app
+    docker cp <host_path/file_name> <container_id:container_path>
+
+lesson55 - Sharing the Source Code with a Container
+
+1. We can publish the application changes using volumes and in this way 
+    we don't have to copy of build our images every now and then.
+    This way whenever we make any changes in our source code, it will be 
+    reflected in our dockerized appliaction.
+    We can do so by mapping/ binding  between our directory on the host 
+    with the directory inside our container.
+    docker run -d -p 5001:3000 -v $(pwd):/app
+    - mapped our project directory with the directory in the container
+
+
+lesson56 - Running Multi-Container Application
+
+Front-end
+Back-end
+Database
+
+lesson57 - Installing Docker Compose
+
+1. Docker compose is a tool which is built on top of Docker Engine. 
+    Using this we can start an application with multiple containers.
+    
+    Use the instruction to install.
+    docker-compose --version
+
+lesson58 - Cleaning Up our Workspace
+
+1. docker conatiner -f rm $(docker container ls -aq)
+
+2. docker image -f rm $(docker image ls -aq)
+
+3. You can use the Docker UI as well. Here you can use the 
+    'Clean/ Purge data'
+    This will restart the docker engine
+
+lesson59 - The Sample Web Application
+
+An application with frontend and backend and it has a docker-compose.yml
+
+lesson60 - JSON and YAML Formats
+
+1. Discussed about JSON and YAML.
+2. Key Value Pairs
+3. For lists we use '-' hyphens with same indentations
+4. For objects we use indentations for properties
+ 
+
+lesson61 - Creating a Compose File
+
+1. The name has to be 'docker-compose.yml'. The is the default name.
+
+2. version: "3.8"
+    - use double quotes otherwise it will be evaluated as a number
+3. services:
+    frontend:
+    backend:
+    db:
+
+    - these can be named as anything. E.g.,
+    services:
+        web:
+        api:
+        db:
+    inside we have properties
+
+4.  version: "3.8"
+    services:                [Each service will have its own Dockerfile]
+        web:
+          build: ./frontend  [location of Dockerfile]
+          ports:
+            - 3000:3000
+        api:
+          build: ./backend
+          ports:
+            - 3001:3001
+          environment:
+            DB_URL: mongodb://db/vidly
+        db:
+          image: mongo:4.0-xenial
+          ports:
+            - 27017:27017
+          volumes:
+            - vidly:/data/db  [mongo db stores its data in '/data/db']
+    volumes:
+      vidly:            [We have to define volume before we can use it]
+
+
+lesson62 - Building Images
+ 
+1. Use the following command to explore option is docker compose:
+    docker-compose
+    - lists all options
+
+
+2. docker-compose --help
+    - more options
+
+3. docker-compose build
+    - builds an image from 'docker-compose.yml'
+
+4. docker-compose build --no-cache
+    - doesn't used the cached memory to build images
+
+5. docker-compose up
+    - get the appliaction up and running
+
+
+
+lesson63 - Starting and Stopping the Application
+
+1. docker-compose up --build
+    - we can combine to the two
+
+2. docker-compose build
+     - forces a rebuild
+
+
+2. docker-compose ps
+    - lists all the containers relevant to this application
+
+3. docker-compose down
+    - stop and remove the containers
+
+
+lesson64 - Docker Networking
+
+1. When we start our appliaction using docker-compose, it will 
+    automatically create a network and add our containers on that 
+    network so these containers can talk to each other.
+    You can see this network while the building the docker-compose up
+
+2. docker network ls
+    - lists all the network in this machine
+
+3. To verify that these containers can talk to each other we can exec in 
+    any of the containers and we will be able to ping :
+
+    docker exec -it 8c6 sh
+    ping api
+    - you can get a permission error. so use the following command to 
+        login using the root user.
+    docker exec -it -u root 8c6 sh
+    - uses the 'root' user to login
+    ping api
+    - pings api
+
+4. Docker comes with embedded DNS server which contains name and IP of 
+    these containers. Inside each containers we have a component called 
+    'DNS resolver'. This DNS resolver talks to the DNS server to find the 
+    IP address of the target containers.
+    So, when we ping the api container, this DNS resolver asks the DNS 
+    server what is the IP address of the api container or API machine 
+    and the DNS server returns the IP address and then the 'web' 
+    container can directly talk to the 'api' container using its IP 
+    address.
+    Each container has an IP address and is part of a network.
+
+
+lesson65 - Viewing Logs
+
 
 
 
