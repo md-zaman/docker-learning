@@ -1626,10 +1626,81 @@ lesson64 - Docker Networking
 
 lesson65 - Viewing Logs
 
+1. docker-compose logs
+    - views the logs across all the containers
+
+2. docker-compose logs --help
+    - lists the available options
+
+3. docker logs <container_id>
+    - views the logs of a particular container
+
+lesson66 - Publishing Changes
+
+1. Mapping a volume like we did earlier
+
+lesson67 - Migrating the Database
+
+??
+
+lesson68 - Running Tests
+
+??
+
+Section 7 - Deployment
+
+1. How to deploy our dockerised applications
+
+lesson70 - Deployment Options
+
+1. To deploy our dockerised applications, we have 2 options:
+    a. Single-host deployment
+    b. Cluster deployment
+
+2. Single-host deployment:
+    If our server goes offline our application will not be accessable.
+    If our application goes rapidly our single server may not be able 
+    to handle this load.
+
+3. Clusters deployment:
+    With clusters, we get high availability and scalability.
 
 
+lesson71 - Get a Virtual Private Server
+
+VPS
+
+1. Options:
+    a. Digital Ocean
+    b. GCP
+    c. Azure
+    d. AWS
+
+lesson72 - Installing Docker Machine
+
+1. Once we have a server, we need a tool docker machine to talk to the 
+    docker engine on that server this way we can execute docker commands 
+    in the terminal and the commands will be sent to our docker engine
+    server on our server.
+
+    It is just copy the command and execute on cli
+
+    docker-machine --version
+    - prints the version
 
 
+lesson73 - Provisioning a host
+
+lesson74 - Connecting to the Host
+
+ssh to connect
+
+lesson75 -  Defining the Production configuration
+
+lesson76 - Reducing the Image Size
+
+1. We can add a label by adding 'AS'. E.g.,
+    FROM node:14.16 AS build-stage
 
 
-
+lesson77 - Deploying the Application
