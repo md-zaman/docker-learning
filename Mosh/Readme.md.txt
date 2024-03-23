@@ -26,7 +26,7 @@ A:  a. Each virtual machine needs a full-blown OS
 A:  a. Allow multiple apps in isolation
     b. Are lightweight
     c. Use OS of the host
-    d. Start quickly
+    d. Starts quickly
     d. Needs less hardware resources
 
 7. Docker Archtecture
@@ -100,7 +100,7 @@ A:  Contains:
     -lists all the images
 
 7. docker version
-    displays the docker version
+    - displays the docker version
 
 LINUX
 
@@ -122,7 +122,7 @@ a. Instead of using "docker pull ubuntu" the shortcut can be:
 6. docker run <docker_image_name>
     -runs a container. 
 
-7. If you start a container and if it is not in interactie mode. It will 
+7. If you start a container and if it is not in interactive mode, it will 
     stop.
 
 8. If you don't want it to stop, keep it in interactive mode. To put it in 
@@ -149,7 +149,7 @@ lesson13 - Running Linux
 
 1. To use Linuxs' particular OS say ubuntu we can type 
     docker pull ubuntu
-    -pulls the ubuntu image
+    - pulls the ubuntu image
 
     or instead of using pull, we can use:
     docker run ubuntu
@@ -158,7 +158,7 @@ lesson13 - Running Linux
 
 2. Although we have downloaded the container and run it, since we didn't 
     interact with it, so it stopped.
-    -so if we do not interact with a container, it will stop
+    - so if we do not interact with a container, it will stop
 
     To check we can write:
     docker ps 
@@ -193,16 +193,20 @@ lesson13 - Running Linux
     histroy
     - lists down all the commands in a serial order.
     - to execute the commands from the list type below:
-    !<command serial> (exclaimation mark and the serial no.)
+    !<command serial> (exclaimation mark and the serial no.). E.g.,
+
     !2
-    - execute the 2nd command in the serial
+    - executes the 2nd command in the serial
+
 
 lesson14 - Managing Packages
 
 8. A Linux package manager is a tool that helps you easily install, update,
     and remove softwares. 
+
     In ubuntu we have apt. 
     apt stands of Advanced Package Tool
+
     If you type:
     apt
     - lists sub-commands, like list, install, remove, search, etc.,
@@ -217,19 +221,19 @@ lesson14 - Managing Packages
     You can list the all the packages that are available in this OS by 
     typing:
     apt list
-    -lists all the packages. Some packages may be installed while others 
+    - lists all the packages. Some packages may be installed while others 
     might not be installed.
 
     So, we update the db of the packages by typing:
     apt update
-    -updates the dbs of the packages
+    - updates the dbs of the packages
     and now when we type:
     apt list
     - more packages will get displayed along with nano
     
     Now, we  can install nano by typing:
     apt install nano
-    - installs nano
+    - installs nano from the package list
 
     Take Away: 
     So, before installing any package, make sure you have updated the 
@@ -237,7 +241,7 @@ lesson14 - Managing Packages
 
 9. To remove any package:
     apt remove nano
-    -uninstalls the package
+    - uninstalls the package
 
 lesson 16 - Linux filesystem
 
@@ -258,7 +262,7 @@ lesson 16 - Linux filesystem
     Just a brief explaination:
     
     /    - root
-    bin  - cotains mainly binary files or programmes
+    bin  - contains mainly binary files or programmes
     boot - contains files related to booting
     dev  - short for devices (Yes, in linux everything is a file, including 
             directories)
@@ -309,7 +313,9 @@ lesson 17 - Manipulating Files and Directories
 
 1. cd ~
     - takes you to the home directory
+
 2. mv
+    - moves files or directories. Requires more options here.
 
 3. touch hello.txt
     - to create a file in txt. touch command is used to create files 
@@ -323,7 +329,8 @@ lesson 17 - Manipulating Files and Directories
     its content also.
 
 6. mkdir
-
+    - makes a new directory
+    
 
 
 Very easy commands for used for editing and viewing documents. Hence
@@ -371,7 +378,7 @@ Nano is a simple text editor in Linux. To install nano type:
     - installs nano text editor
 
 2. nano file_name1.txt
-    - create a txt file and opens in nano editor
+    - creates a txt file and opens in nano editor
 
 3. cat
     - displays what is inside the file. It is short for concatenate
@@ -409,12 +416,17 @@ lesson19 - Redirection
 In Linux, redirection lets you change where the output of a command goes. 
     By default, commands send their output to the terminal screen. 
     Redirection allows you to:
-    - Send output to a file (>): ls > files.txt saves the list of files to 
-        files.txt.
-    - Append output to a file (>>): ls >> files.txt adds the new list to 
-        the end of files.txt.
-    - Discard output (> /dev/null): ls > /dev/null hides the output (useful
-        for commands that just need to run)
+    Send output to a file (>): 
+    ls > files.txt 
+    - saves the list of files to files.txt.
+
+    Append output to a file (>>): 
+    ls >> files.txt 
+    - adds the output to the end of files.txt.
+
+    Discard output (> /dev/null): 
+    ls > /dev/null 
+    - hides the output (useful for commands that just need to run)
 
 
 lesson20 - Searching for Text
@@ -425,7 +437,7 @@ We will see how this works using some commands and their explaination
 
 1. grep hello file.txt
     - searches for the word/string "hello" in the file
-    - use "-i" option/ flag to make it case insensitive. E.g.,
+    - use "-i" option/ flag to make it case in-sensitive. E.g.,
     grep -i hello file.txt
     - searches for the word hello. Now this will display even if it is
         written in uppercase.
@@ -436,8 +448,9 @@ We will see how this works using some commands and their explaination
 3. grep -i hello file1.txt file2.txt
     - or
     grep -i hello file*
-    - means the same thing as above. We have used a wildcard which means any
-    file having "file" written in the beginning and whatever afterthat.
+    - means the same thing as above. We have used a wildcard which means 
+        any file having "file" written in the beginning and whatever 
+        after that.
 
 2. To search in a directory:
     grep -i -r hello .
@@ -491,23 +504,23 @@ We can chain or combine different commands like
     command because directory 'test' already exists but the rest commands 
     will be executed.
 
-3. We can use the and operator. If one command fails, other commands won't 
-    get executed.
+3. We can use the and operator (&&). If one command fails, other commands 
+    won't get executed:
     mkdir test && cd test && echo done
 
-4. We can also use the or operator (||). If the 1st command gets executed the 2nd 
-    command doesn't get executed but if the 1st command doesn't get executed
-    the 2nd command gets executed.
+4. We can also use the or operator (||). If the 1st command gets executed 
+    the 2nd command doesn't get executed but if the 1st command doesn't 
+    get executed the 2nd command gets executed:
     mkdir test || echo "Directory Exists"
 
 5. Another way to chain commands is piping. What it essentially do here is
     get the output of the 1st command and put it to the next command.
-  ls /bin | less
-  - lists all the output of the ls /bin commmand and displays in 'less'.
-  - Ref. lesson17, serial 5
+    ls /bin | less
+    - lists all the output of the ls /bin commmand and displays in 'less'.
+    - Ref. lesson17, serial 5
 
-  ls /bin | head -n 5
-  - just a command to drive away you fear when you see something new
+    ls /bin | head -n 5
+    - displays 5 lines from the head (top)
 
 6. Splitting commands in multiple lines. We can use '\' to end the line and
     after that we can press enter and write other commands. This ensure
@@ -518,6 +531,7 @@ We can chain or combine different commands like
     mkdir hello;\
     > cd hello; \
     > echo done
+
 
 lesson23 - Environment Variables
 
@@ -630,11 +644,12 @@ lesson25 - Managing Users
     To login as 'zaman' using the bash shell. We type:
     docker exec -it -u zaman 2f75e699 bash
     - logs in inside a container using bash
+    - This is not general. Related to containers
 
     To check if the changes has been made we type:
     cat /etc/passwd 
-    - we will see all the user information. Here we will find that the shell
-        has been changed.
+    - we will see all the user information. Here we will find that the 
+        shell has been changed.
 
 7. Passwords are saved in the /etc/shadow. We can access this directory by:
     cat /etc/shadow
@@ -645,7 +660,7 @@ lesson25 - Managing Users
     adduser
     - adds a user
     adduser zaman
-    - you will get may info as well as options here.
+    - you will get many info as well as options here.
 
 lesson26 - Managing Groups
 
@@ -656,7 +671,7 @@ groupadd, groupmod, addgroup, etc.
 1. groupadd developers
     - makes a group by the name 'developers'
 
-2. we can view all the groups by:
+2. We can view all the groups by:
     cat /etc/groups
     - displays all the groups
 
@@ -691,11 +706,13 @@ To get the perssion of any file we have to view the long listing:
     - lists all files and directories along with permissions.
 
 2. In long listing, here is an example of how we see files/directories:
+
     drwxr-xr-x 2 bob  bob  4096 Mar 12 19.18 bob
     -rw-r--r-- 1 root root   11 Mar 13 20:03 deploy.sh
-    Now, let have the breakup of the info we see:
-    drwxr-xr-x : The first character that we see here tells us whether it is
-                    a file or a directory. 'd' means directory while '-'
+
+    Now, let us have the breakup of the info we see:
+    drwxr-xr-x : The first character that we see here tells us whether it 
+                    is a file or a directory. 'd' means directory while '-'
                     means a file.
                  After the 1st character, we have 9 characters- a set of 3
                     characters actually.
@@ -714,7 +731,8 @@ To get the perssion of any file we have to view the long listing:
     ./deploy.sh
     - executes the file 'deploy.sh'
 
-4. To change permission of a particular file, we use change mode command:
+4. To change permission of a particular file, we use 'change mode' command:
+
     chmod <entity><+/-><permission> <file_name>
     - <entity> can be u/g/o (user that owns the file/group/others)
     - <+/-> '+' to add permission; '-' to remove permission
@@ -724,7 +742,9 @@ To get the perssion of any file we have to view the long listing:
     chmod o+x deploy.sh
     - changes permission for others to execute
 
-5. Variations of the above command. We will only use an example to understand
+5. Variations of the above command. We will only use an example to 
+    understand:
+
     chmod og+x+w-r deploy.sh
     - changes permission for others and group; adds execute; adds write;
         removes read permissions.
@@ -783,15 +803,15 @@ lesson29 - Images and Containers
     From Gemini (Google's AI)
     Containers:
     - Package: Contains an application and its dependencies (libraries, 
-    frameworks) all bundled together.
+        frameworks) all bundled together.
     - Isolated: Runs in its own isolated environment, not directly on the 
         host system.
     - Portable: Works consistently across different environments (dev, test, 
         prod) due to self-contained nature.
     - Lightweight: Shares the OS kernel with other containers, making them 
         efficient.
-    - Scalable: Containers can be easily spun up and down, making them ideal 
-        for microservices architectures.
+    - Scalable: Containers can be easily spun up and down, making them 
+        ideal for microservices architectures.
 
     Difference between Containers and Virtual machines
     - Level of Virtualization:
@@ -831,7 +851,7 @@ lesson 31 - Dockerfile Instructions
 1. Dockerfile: A Dockerfile contains instructions for building an image
 
 2. Contains:
-    - FROM - To specify the base image.
+    - FROM - To specify the base image. (The cut-down OS mentioned earlier)
     - WORKDIR - Working Directory. Once we specify this directory all the 
                 following command will be executed here
     - COPY - for copying files/ directories
@@ -845,8 +865,8 @@ lesson 31 - Dockerfile Instructions
             limited privileges.
     - CMD - for specifying the command that has to be executed when we 
             start a container.
-    - ENTRYPOINT - for specifying the command that has to be executed when we 
-                    start a container. (MORE INFO)
+    - ENTRYPOINT - for specifying the command that has to be executed when 
+                    we start a container. (MORE INFO LATER)
 
 lesson32 - Choosing the Right Base Image
 
@@ -935,7 +955,7 @@ lesson33 - Copying Files and Directories
 4. Other version for understanding:
     COPY package.json README.md /app
     - copies two files in the 'app' directory
-    - However, the above instruction is has a syntax error. The error is 
+    - However, the above instruction has a syntax error. The error is 
         that when using COPY for more than 1 source file, the destination
         must be a directory and must end in '/' (forward slash).
         So, the correct syntax is:
@@ -1076,7 +1096,7 @@ the container
 2. We we type 'useradd' in the command line, we get to see all the options
     available. These are flags:
     -S 
-    - creates a system user
+    - creates a 'system' user
     -G
     - creates/sets up the primary group of the user
 
@@ -1259,7 +1279,7 @@ Create a Repository
 2. docker push
     docker push zamanmd/react-app:1
     - pushes the image to docker hub
-    - docker pushes each layer at a time. So the first timee it pushes it 
+    - docker pushes each layer at a time. So the first time it pushes it 
         takes some time then later it becomes quick assuming we have not 
         changed our application dependencies.
 
@@ -1300,13 +1320,13 @@ lesson46 - Starting Containers
     we can run the container in detached mode:
     docker run -d react-app
     - runs 'react-app' container in detached mode (in the background)
-    - meanwhile, we can use ther terminal
+    - meanwhile, we can use the terminal
 
 2. Naming a container:
     Docker give each container a random name. If can use the name as a 
     reference. We can also give that name using the following command:
     docker run -d --name blue-sky react-app
-    - runs the 'react-app' container in detached mode and nomes it 
+    - runs the 'react-app' container in detached mode and names it 
         'blue-sky'
 
 lesson47 - Viewing the Logs
@@ -1338,9 +1358,9 @@ lesson48 - Publishing Ports
     docker run -d -p 80:3000 --name c1 react-app
     - runs a container. 
     - the flag '-p 80:3000' means port mapping the 1st port is the host 
-        port and 2nd port is container's port.
-        80 is host port
-        3000 is container's port
+        port and 2nd port is container's port. So,
+        '80' is host port
+        '3000' is container's port
 
 lesson49 - Executing Commands in Running Containers
 
@@ -1383,7 +1403,7 @@ lesson51 - Removing Containers
 2. Remove a container:
     docker rm c1
     
-3. A conatiner cannot be removed if it is running. So, if you want to 
+3. A container cannot be removed if it is running. So, if you want to 
     remove it either stop it first and then remove it or you can force 
     remove it by:
     docker rm -f c1
@@ -1412,7 +1432,7 @@ lesson53 - Persisting Data using Volumes
     docker volume create app-data
     - creates a volume
 
-3. To inspects the volume:
+3. To inspect the volume:
     docker volume inspect app-data
     - shows details about the volume
     - looks something like:
