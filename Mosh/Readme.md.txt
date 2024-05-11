@@ -631,7 +631,7 @@ lesson25 - Managing Users
     - '/bin/sh' - shell programme used when this user logs in
 
 6. After seeing the above details from the user 'zaman'. Let us say that 
-    we decide to modify the user and use another shell progamme for the 
+    we decide to modify the user and use another shell programme for the 
     user.
     So, first of all let us check which option do we have to user along with
     'usermod'. To explore the flag, simple type:
@@ -1725,4 +1725,4 @@ lesson76 - Reducing the Image Size
     FROM node:14.16 AS build-stage
 
 
-lesson77 - Deploying the Application
+lesson77 - Deploying the Application.
