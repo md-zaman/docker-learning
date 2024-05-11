@@ -660,7 +660,7 @@ lesson25 - Managing Users
     adduser
     - adds a user
     adduser zaman
-    - you will get many info as well as options here.
+    - you will get many info as well as options here one after the other
 
 lesson26 - Managing Groups
 
@@ -679,8 +679,9 @@ groupadd, groupmod, addgroup, etc.
     simply type 'usermod' to find all the flags/options.
     '-G' is to add supplementary groups for this user
     '-g' force use GROUP as new primary group
-    Every linux user has 1 primary group and 0 or more supplementary groups
-    When a user creates a file it can be owned by 1 user and 1 group only.
+    Every linux user has 1 primary group and 0 or more supplementary 
+    groups. When a user creates a file it can be owned by 1 user and 1 
+    group only.
     So, the user who created the file will own the file along with the 
     primary group. Primary group is created while creating the user with the 
     same name.
@@ -712,8 +713,8 @@ To get the permission of any file we have to view the long listing:
 
     Now, let us have the breakup of the info we see:
     drwxr-xr-x : The first character that we see here tells us whether it 
-                    is a file or a directory. 'd' means directory while '-'
-                    means a file.
+                    is a file or a directory. 'd' means directory while 
+                    '-' means a file.
                  After the 1st character, we have 9 characters- a set of 3
                     characters actually.
                     Here, each character refers to permissions:
@@ -783,13 +784,13 @@ lesson29 - Images and Containers
 
     From Gemini (Google's AI)
     Image:
-    - Template: A blueprint that defines the contents and configuration of a 
-        container.
+    - Template: A blueprint that defines the contents and configuration 
+        of a container.
     - Immutable: Once created, the image itself cannot be modified.
     - Versioned: Images can be versioned to track changes and ensure 
         consistency.
-    - Shareable: Images can be easily shared across machines and registries 
-        for deployment.
+    - Shareable: Images can be easily shared across machines and 
+        registries for deployment.
     - Reusable: The same image can be used to create multiple containers.
 
 3. Container: A container is like an isolated Operating System.
@@ -806,10 +807,10 @@ lesson29 - Images and Containers
         frameworks) all bundled together.
     - Isolated: Runs in its own isolated environment, not directly on the 
         host system.
-    - Portable: Works consistently across different environments (dev, test, 
-        prod) due to self-contained nature.
-    - Lightweight: Shares the OS kernel with other containers, making them 
-        efficient.
+    - Portable: Works consistently across different environments (dev, 
+        test, prod) due to self-contained nature.
+    - Lightweight: Shares the OS kernel with other containers, making 
+        them efficient.
     - Scalable: Containers can be easily spun up and down, making them 
         ideal for microservices architectures.
 
@@ -1088,8 +1089,8 @@ The RUN and USER commands
 Here we will create a new 'system' user and put it in a group to work in 
 the container
 
-1. By default docker our application with the root user which has all
-    the privileges but it makes it risky.
+1. By default docker builds our application with the root user which has 
+    all the privileges but it makes it risky.
     So, to run any application on docker we should create a regular user
     with limited privileges.
       
@@ -1100,7 +1101,7 @@ the container
     -G
     - creates/sets up the primary group of the user
 
-3. Type the following command and understandd it:
+3. Type the following command and understand it:
     addgroup app
     - creates a group
     adduser -S -G app app
@@ -1187,8 +1188,8 @@ RUN, CMD and ENTRYPOINT
 
     The difference is we cannot easily override ENTRYPOINT. To override
     we have to use a flag: --entrypoint
-    A lot of people forget to override so it is slightly harder to override
-    but you have easily over ride CMD
+    A lot of people forget to override so it is slightly harder to 
+    override but you have easily over ride CMD
 
 
 lesson40: Speeding Up Builds
@@ -1482,8 +1483,9 @@ lesson54 - Copying Files between the Host and Containers
     - copies a file from a container to host
 
 4. Copy from from the host to the container:
-    docker cp secret.txt e1c90:/app
     docker cp <host_path/file_name> <container_id:container_path>
+    docker cp secret.txt e1c90:/app
+    
 
 lesson55 - Sharing the Source Code with a Container
 
