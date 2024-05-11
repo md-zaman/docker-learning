@@ -1193,7 +1193,7 @@ RUN, CMD and ENTRYPOINT
 
 lesson40: Speeding Up Builds
 
-1. Layers: An image in docker is collection layers. Each layer is like 
+1. Layers: An image in docker is collection of layers. Each layer is like 
     a small filesystem that only includes modified files.
     Each command is layer and that layer only modifies the image based on 
     this instruction.
@@ -1212,7 +1212,7 @@ lesson40: Speeding Up Builds
     COPY . .
     - instead of copying the entire files in one go. We can separte what
         is require in the subsequent command so that this particular 
-        layer can be reuse and we can save time while creating the image.
+        layer can be reused and we can save time while creating the image.
 
 3. Takeaway: While writing a Dockerfile. We should keep the instruction 
     that do not change frequently on the top so that the layer can be 
@@ -1229,7 +1229,7 @@ lesson41 - Removing Images
     docker container prune
     - removes all the stopped containers
 
-3. Use the following command to get all the options related to conatiners:
+3. Use the following command to get all the options related to containers:
     docker images
     - lists all the option we can use with 'docker images'
 
@@ -1254,7 +1254,7 @@ lesson42 - Tagging Images
     Tag the image after it is build:
         Here, we use the 'tag' command. This is like renaming the old
         name with the new one. E.g.,
-        docker image tag <old_image_name:version> <new_image_name>
+        docker image tag <old_image_name:version> <new_image_name:version>
         docker image tag react-app:latest react-app:1
 
 3. Instead of image name we can also use image ID
@@ -1265,7 +1265,7 @@ lesson42 - Tagging Images
 
 lesson43 - Sharing Images
 
-hub.docker.com
+hub.docker.com - it is a repo
 
 Create a Repository
 
@@ -1283,7 +1283,7 @@ Create a Repository
         takes some time then later it becomes quick assuming we have not 
         changed our application dependencies.
 
-3. After pushing it on docker we can pull it in in machine using docker.
+3. After pushing it on docker we can pull it in machine using docker.
 
 
 lesson44 - Saving and Loading Images
@@ -1323,7 +1323,7 @@ lesson46 - Starting Containers
     - meanwhile, we can use the terminal
 
 2. Naming a container:
-    Docker give each container a random name. If can use the name as a 
+    Docker give each container a random name. We can use the name as a 
     reference. We can also give that name using the following command:
     docker run -d --name blue-sky react-app
     - runs the 'react-app' container in detached mode and names it 
@@ -1477,8 +1477,8 @@ lesson54 - Copying Files between the Host and Containers
 2. we can use the 'cp' command to copy to and from a container
 
 3. Copy from a container to our host:
-    docker cp e1c90:/app/log.txt .
     docker cp <container_id>:<container_path> <host_path>
+    docker cp e1c90:/app/log.txt .
     - copies a file from a container to host
 
 4. Copy from from the host to the container:
@@ -1488,9 +1488,9 @@ lesson54 - Copying Files between the Host and Containers
 lesson55 - Sharing the Source Code with a Container
 
 1. We can publish the application changes using volumes and in this way 
-    we don't have to copy of build our images every now and then.
+    we don't have to copy or build our images every now and then.
     This way whenever we make any changes in our source code, it will be 
-    reflected in our dockerized appliaction.
+    reflected in our dockerized application.
     We can do so by mapping/ binding  between our directory on the host 
     with the directory inside our container.
     docker run -d -p 5001:3000 -v $(pwd):/app
@@ -1508,12 +1508,12 @@ lesson57 - Installing Docker Compose
 1. Docker compose is a tool which is built on top of Docker Engine. 
     Using this we can start an application with multiple containers.
     
-    Use the instruction to install.
+    Use the instruction to install from the official website.
     docker-compose --version
 
 lesson58 - Cleaning Up our Workspace
 
-1. docker conatiner -f rm $(docker container ls -aq)
+1. docker container -f rm $(docker container ls -aq)
 
 2. docker image -f rm $(docker image ls -aq)
 
@@ -1575,7 +1575,7 @@ lesson61 - Creating a Compose File
 
 lesson62 - Building Images
  
-1. Use the following command to explore option is docker compose:
+1. Use the following command to explore options in docker compose:
     docker-compose
     - lists all options
 
@@ -1615,7 +1615,7 @@ lesson64 - Docker Networking
 1. When we start our appliaction using docker-compose, it will 
     automatically create a network and add our containers on that 
     network so these containers can talk to each other.
-    You can see this network while the building the docker-compose up
+    You can see this network while building the docker-compose up
 
 2. docker network ls
     - lists all the network in this machine
@@ -1625,7 +1625,7 @@ lesson64 - Docker Networking
 
     docker exec -it 8c6 sh
     ping api
-    - you can get a permission error. so use the following command to 
+    - you can get a permission error. So use the following command to 
         login using the root user.
     docker exec -it -u root 8c6 sh
     - uses the 'root' user to login
@@ -1678,7 +1678,7 @@ lesson70 - Deployment Options
     b. Cluster deployment
 
 2. Single-host deployment:
-    If our server goes offline our application will not be accessable.
+    If our server goes offline our application will not be accessible.
     If our application goes rapidly our single server may not be able 
     to handle this load.
 
