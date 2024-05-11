@@ -74,8 +74,8 @@ A:  Contains:
 
 
 10. Container:
-    A container is a process. But is it a special kind of process which has 
-    its own filesystem.
+    A container is a process. But is it a special kind of process which 
+    has its own filesystem.
 
     Google Gemini:
     A Docker container, building on the image analogy, is the cooked pizza 
