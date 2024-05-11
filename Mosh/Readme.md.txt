@@ -42,7 +42,7 @@ A: Docker works on client server architecture. The client is connected and
 8. Kernel
 A: A kernel manages the application and hardware resources.
 
-    Gemini Explaination:
+    Explaination:
     The kernel in Linux is the core program that acts as a bridge between 
     your applications and the physical hardware. It manages resources 
     (CPU, memory, storage) and controls communication between everything 
