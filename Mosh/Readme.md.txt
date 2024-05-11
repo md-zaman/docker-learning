@@ -216,7 +216,7 @@ lesson14 - Managing Packages
     To install it, we type:
     apt install nano
     - it might still not get installed, because we might not have the 
-        package of nano in the database of the ubuntu images.
+        package of nano in the database of the ubuntu packages.
 
     You can list the all the packages that are available in this OS by 
     typing:
