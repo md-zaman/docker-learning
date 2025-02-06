@@ -17,12 +17,12 @@ A:  `Container`- An isolated environment for running an app. \
     (Add more from hand written notes AV)
 
 5. Problems with virtual machine? \
-A:  a. Each virtual machine needs a `full-blown OS` \
+    a. Each virtual machine needs a `full-blown OS` \
     b. `Slow` to start \
     c. `Resource` intensive
 
 6. Containers \
-A:  a. Allow *multiple* apps **in isolation** \
+    a. Allow *multiple* apps **in isolation** \
     b. Are **lightweight** \
     c. Use Host's OS \
     d. Starts **quickly** \
