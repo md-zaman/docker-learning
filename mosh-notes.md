@@ -728,8 +728,8 @@ To get the permission of any file we have to view the long listing:
         chmod og+x+w-r *.sh (wildcard to denote all files having .sh 
             extension)
 
-=======
-Docker
+======= \
+Docker \
 =======
 Section 4
 
