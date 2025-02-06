@@ -175,63 +175,69 @@ c. `/`     - means where we are in the filesystem. A forward slash represents th
 d. `#`     - denotes the privileges. A hash means that we have the highest priviledges as the root user. If we login as a different user, we will get a $ (dollar)  of # (hash).
 
 7. To list down all the commands entered type:
-    histroy
+```bash
+histroy
     - lists down all the commands in a serial order.
     - to execute the commands from the list type below:
-    !<command serial> (exclaimation mark and the serial no.). E.g.,
+    !<command serial> (exclaimation mark and the serial no.). 
+    E.g.,
 
     !2
     - executes the 2nd command in the serial
+```
 
+#### lesson14 - Managing Packages
 
-lesson14 - Managing Packages
+8. A Linux package manager is a tool that helps you easily install, update and remove softwares. 
 
-8. A Linux package manager is a tool that helps you easily install, update,
-    and remove softwares. 
+In ubuntu we have `apt`. 
+apt stands of ***Advanced Package Tool***
 
-    In ubuntu we have apt. 
-    apt stands of Advanced Package Tool
-
-    If you type:
-    apt
+If you type:
+```bash
+apt
     - lists sub-commands, like list, install, remove, search, etc.,
+```
 
-    Suppose we want to install nano. If we type nano, we get nothing 
-    because it has not been installed currently.
-    To install it, we type:
-    apt install nano
-    - it might still not get installed, because we might not have the 
-        package of nano in the database of the ubuntu packages.
+Suppose we want to install `nano`. If we type `nano`, we get nothing because it has not been installed currently.
+To install it, we type:
 
-    You can list the all the packages that are available in this OS by 
-    typing:
-    apt list
-    - lists all the packages. Some packages may be installed while others 
-    might not be installed.
-
+```bash
+apt install nano
+    - it might still not get installed, because we might not have the package of nano in the database of the ubuntu packages.
+```
+You can list the all the packages that are available in this OS by typing:
+```bash
+apt list
+    - lists all the packages. Some packages may be installed while others might not be installed.
+```
     So, we update the db of the packages by typing:
-    apt update
-    - updates the dbs of the packages
-    and now when we type:
-    apt list
-    - more packages will get displayed along with nano
-    
-    Now, we  can install nano by typing:
-    apt install nano
-    - installs nano from the package list
-
-    Take Away: 
-    So, before installing any package, make sure you have updated the 
-    package db
+```bash
+apt update
+- updates the dbs of the packages
+```
+and now when we type:
+```bash
+apt list
+- more packages will get displayed along with nano
+```
+Now, we  can install nano by typing:
+```bash
+apt install nano
+- installs nano from the package list
+```
+Take Away: 
+So, before installing any package, make sure you have updated the package db
 
 9. To remove any package:
-    apt remove nano
-    - uninstalls the package
+```bash
+apt remove nano
+- uninstalls the package
+```
+#### lesson 16 - Linux filesystem
 
-lesson 16 - Linux filesystem
-
-1. In linux, we have the root directory on top which is represented as "/".
-    below that we have some standard directories:
+1. In linux, we have the root directory on top which is represented as "/". \
+Below that we have some standard directories:
 
     /
     bin
