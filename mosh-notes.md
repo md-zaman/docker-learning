@@ -569,16 +569,13 @@ export DB_USER=zaman
 5. To make a variable `persistent`, we have to write the variable in a `special file`. The name of the file is `".bashrc"`. You will find this file in your home directory. So, to be able to see it type:
 ```bash
 ls -a
-- lists all the files and dir including the hidden ones
-- Here you will find '.bashrc'
-- You can either type 'vi .bashrc' and start editing the file and declare you variable here or simple append by:
+    - lists all the files and dir including the hidden ones
+    - Here you will find '.bashrc'
+    - You can either type 'vi .bashrc' and start editing the file and declare you variable here or simple append by:
 
 echo DB_USER=zaman >> .bashrc
-- adds another line 'DB_USER=zaman' in the file 'bashrc'
-- now, there is a small limitation to this is that the appended
-    environment variable will be active in another session of the
-    terminal. Meaning you have to stop this session and begin a new 
-    one to see the result.
+    - adds another line 'DB_USER=zaman' in the file 'bashrc'
+    - now, there is a small limitation to this is that the appended environment variable will be active in another session of the terminal. Meaning you have to stop this session and begin a new one to see the result.
 ```
 6. We can use the source command to reload the '.bashrc' file.
     source .bashrc
