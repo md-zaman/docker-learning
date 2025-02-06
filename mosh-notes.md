@@ -92,10 +92,10 @@ docker ps
     process)
 ```
 
-4. To display all the containers if if it's stopped:
+4. To display all the containers even if it's stopped:
 ```bash
 docker ps -a
-    displays all the containers even if it is stopped 
+    - displays all the containers even if it is stopped 
 ```
 6. To run a container from an image:
 ```bash
@@ -114,7 +114,7 @@ docker run -it ubuntu
 ---------------------
 Henceforth, lesson-wise
 
-lesson12- Linux Distributions
+### lesson12- Linux Distributions
 1. Linux is an opensource OS
 
 2. Linux comes with a lot of Distributions
