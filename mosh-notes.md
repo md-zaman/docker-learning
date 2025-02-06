@@ -92,21 +92,25 @@ docker ps
     process)
 ```
 
-4. docker ps -a
+4. To display all the containers if if it's stopped:
+```bash
+docker ps -a
     displays all the containers even if it is stopped 
-
-6. docker run <docker_image_name>
+```
+6. To run a container from an image:
+```bash
+docker run <docker_image_name>
     -runs a container. 
+```
+7. If you start a container and if it is not in `interactive mode`, it will *stop*.
 
-7. If you start a container and if it is not in interactive mode, it will 
-    stop.
+8. If you don't want it to stop, keep it in interactive mode. To put it in interactie mode, use the flag `-it`
 
-8. If you don't want it to stop, keep it in interactive mode. To put it in 
-interactie mode, use the flag "-it"
-
-5. docker run -it ubuntu
+E.g., 
+```bash
+docker run -it ubuntu
     -runs a container in interactive mode.
-
+```
 ---------------------
 Henceforth, lesson-wise
 
