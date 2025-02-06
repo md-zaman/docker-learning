@@ -3,17 +3,17 @@
 1. What is Docker? \
 A: Docker is a platform for `running`, `building` and `shipping` application.
 
-2. Why an applications works on your machine but doesn't elsewhere/ Need for Docker?
- - a. Missing one or more files
- - b. Software version mismatch. The software which it's dependent on is of different version.
- - c. Different configuration settings.
+2. Why an applications works on your machine but doesn't elsewhere/ Need for Docker? \
+ a. Missing one or more files
+ b. Software version mismatch. The software which it's dependent on is of different version.
+ c. Different configuration settings.
 
 3. How does docker do? \
-a: With docker we package the application with all that it needs and run it anywhere.
+ A: With docker we `package` the application with `all that it needs` and run it anywhere.
 
 4. Container vs Virtual machine \
-A:  `Container`- An isolated environment for running an app. \
-    `Virtual machine`- An abstraction of a machine (physical hardware).
+    `Container`- An isolated environment for running an app. \
+    `Virtual machine`- An abstraction of a machine (physical hardware). \
     (Add more from hand written notes AV)
 
 5. Problems with virtual machine? \
