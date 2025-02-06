@@ -1,4 +1,4 @@
-1. What is Docker?
+1. What is Docker? \
 A: Docker is a platform for running, building and shipping application.
 
 2. Why an applications works on your machine but doesn't elsewhere/ Need for Docker?
