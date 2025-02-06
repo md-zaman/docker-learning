@@ -251,39 +251,30 @@ Below that we have some standard directories:
     var 
     proc 
 ```
-    Just a brief explaination:
+Just a brief explaination:
     
-    /    - root
-    bin  - contains mainly binary files or programmes
-    boot - contains files related to booting
-    dev  - short for devices (Yes, in linux everything is a file, including 
-            directories)
-    etc  - General belief is it stands of Editable Text Config 
-            (configuration files)
-    home - This is where home directories of users are stored. Each user 
-            is going to have their home directory here.
-    root - root directory for the root user. Only the root user will be 
-            able to see this
-    lib  - used for keeping library files like software library dependencies
-    var  - stands for variable. This is where files are updated frequently 
-            like log files, application data, etc.
-    proc - contains files represent running processes. (Yes, even processes 
-            are files in linux)
-    
-lesson16: Navigating the File System
+`/`    - root
+`bin`  - contains mainly binary files or programmes
+`boot` - contains files related to booting
+`dev`  - short for devices (Yes, in linux everything is a file, including directories)
+`etc`  - General belief is it stands of Editable Text Config (configuration files)
+`home` - This is where home directories of users are stored. Each user is going to have their home directory here.
+`root` - root directory for the root user. Only the root user will be able to see this
+`lib`  - used for keeping library files like software library dependencies
+`var`  - stands for variable. This is where files are updated frequently like log files, application data, etc.
+`proc` - contains files represent running processes. (Yes, even processes are files in linux)
 
-Relative Path vs Absolute Path:
+#### lesson16: Navigating the File System
 
-Relative path: Starts with "./" or "../", navigates relative to your 
-    current location. Like giving directions.
-    Example: ./report.pdf (This file is in the current directory)
-    Example: ../downloads/music.mp3 (This file is in the "downloads" 
-    folder, one level up from the current directory)
+`Relative Path` vs `Absolute Path`:
 
-Absolute path: Starts with "/", tells the exact location from the 
-    root directory. Think full address.
-    Example: /home/user/documents/report.pdf (This file is in the 
-    "documents" folder inside the user's home directory)
+`Relative path`: Starts with "./" or "../", navigates relative to your current location. Like giving directions. \
+    **Example**: *./report.pdf* (This file is in the current directory) \
+    **Example**: *../downloads/music.mp3* (This file is in the "downloads" folder, one level up from the current directory)
+
+`Absolute path`: Starts with "/", tells the exact location from the root directory. \
+    Think full address.
+    *Example*: */home/user/documents/report.pdf* (This file is in the "documents" folder inside the user's home directory)
 
 Very basic commands:
 
@@ -301,7 +292,7 @@ Very basic commands:
 
 6. cd ..
 
-lesson 17 - Manipulating Files and Directories
+#### lesson 17 - Manipulating Files and Directories
 
 1. cd ~
     - takes you to the home directory
@@ -325,8 +316,7 @@ lesson 17 - Manipulating Files and Directories
     
 
 
-Very easy commands for used for editing and viewing documents. Hence
-    explained in very brief.
+Very easy commands for used for editing and viewing documents. Hence explained in very brief.
 
  1. mkdir
     - creates a directory
@@ -362,7 +352,7 @@ Very easy commands for used for editing and viewing documents. Hence
     rm -r <directory_name>
     - removes directory having files inside. "-r" is recursive
 
-lesson17 - Editing and Viewing files
+#### lesson17 - Editing and Viewing files
 
 Nano is a simple text editor in Linux. To install nano type:
 
@@ -375,53 +365,58 @@ Nano is a simple text editor in Linux. To install nano type:
 3. cat
     - displays what is inside the file. It is short for concatenate
 
-4. Similar to "cat" command we have the following command to view large
-    files. Here, we don't have to scroll and see our file instead we get 
-    an interface with some features. We can simply type:
-    more
+4. Similar to "cat" command we have the following command to view large files. Here, we don't have to scroll and see our file instead we get an interface with some. We can simply type: \
+```bash
+more
     - displays what is inside the file
-    - press space to go to the next page (we will get a percentage (%)
-        at the bottom. Denoting how much % is getting displayed)
+    - press space to go to the next page (we will get a percentage (%) at the bottom. Denoting how much % is getting displayed)
     - press enter to go one line at a time
     - to exit we press 'q'
-
-5. Similar to "more", we have "less" command. The problem with "more" 
-    command is we can't scroll up. Means we can go to the next page by 
-    pressing space but we can't go to the previous page. In less we can
-    view the files in interactive way.
-    If you do not get the less command then simply install it using 
-    "apt install less".
-    Type:
-    less <file_name>
+```
+5. Similar to "more", we have "less" command. The problem with "more" command is we can't scroll up. Means we can go to the next page by pressing space but we can't go the previous page. In less, we can view the files in interactive way. \
+If you do not get the less command then simply install it using 
+```bash
+apt install less
+```
+Type:
+```bash
+less <file_name>
     - displays the content of the file.
     - press up and down arrow keys to navigate
     - to exit we press 'q'
+```
 
 6. Alternate options are (not so important):
-    head -n 5 <file_name>
+
+```bash
+head -n 5 <file_name>
     - displays 5 lines from the top
+```
+```bash
+tail -n 5 <file_name>
+```
+#### lesson19 - Redirection
 
-    tail -n 5 <file_name>
-
-lesson19 - Redirection
-
-In Linux, redirection lets you change where the output of a command goes. 
-    By default, commands send their output to the terminal screen. 
-    Redirection allows you to:
-    Send output to a file (>): 
-    ls > files.txt 
+In Linux, redirection lets you change where the output of a command goes. \
+By default, commands send their output to the terminal screen. \
+Redirection allows you to: \
+Send output to a file (>):
+```bash
+ls > files.txt 
     - saves the list of files to files.txt.
-
-    Append output to a file (>>): 
-    ls >> files.txt 
+```
+Append output to a file (>>): 
+```bash
+ls >> files.txt 
     - adds the output to the end of files.txt.
+```
+Discard output (> /dev/null): 
+```bash
+ls > /dev/null 
+- hides the output (useful for commands that just need to run)
+```
 
-    Discard output (> /dev/null): 
-    ls > /dev/null 
-    - hides the output (useful for commands that just need to run)
-
-
-lesson20 - Searching for Text
+#### lesson20 - Searching for Text
 
 grep = Global Regular Expression Print
 
