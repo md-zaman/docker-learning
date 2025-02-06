@@ -11,24 +11,24 @@ A:  a. Missing one or more files
 a: With docker we package the application with all that it needs and run it anywhere.
 
 4. Container vs Virtual machine \
-A:  `Container`- An isolated environment for running an app.
+A:  `Container`- An isolated environment for running an app. \
     `Virtual machine`- An abstraction of a machine (physical hardware).
     (Add more from hand written notes from Abhishek Veeramalla)
 
 5. Problems with virtual machine? \
-A:  a. Each virtual machine needs a ~full-blown OS~
-    b. `Slow` to start
-    c. `Resource` intensive
+A:  a. Each virtual machine needs a `full-blown OS` \
+    b. `Slow` to start \
+    c. `Resource` intensive \
 
 6. Containers \
-A:  a. Allow multiple apps in isolation
-    b. Are lightweight
-    c. Use OS of the host
-    d. Starts quickly
-    d. Needs less hardware resources
+A:  a. Allow *multiple* apps **in isolation** \
+    b. Are **lightweight** \
+    c. Use Host's OS \
+    d. Starts **quickly** \
+    d. Needs **less hardware resources** \
 
 7. Docker Archtecture \
-A: Docker works on client server architecture. The client is connected and talks to the server component by Rest API and the server is known as `Docker Engine/ Docker Daemon`.Docker Daemon sits in the background and takes care of building and running containers.
+A: Docker works on `client-server` architecture. The client is connected and talks to the server component by **Rest API** and the server is known as `Docker Engine/ Docker Daemon`. ***Docker Daemon*** sits in the background and takes care of building and running containers.
     Container don't use full-blown OS. Instead, all the containers of the host share the OS. Infact, all containers share the kernel of the host.
 
 8. Kernel \
@@ -39,12 +39,12 @@ A: A kernel manages the application and hardware resources.
 
 9. Docker Image:
 
-A:  Contains:
-    a. A cut-down OS
-    b. A runtime environment
-    c. Application files
-    d. Third-party libraries
-    e. Environment variables
+A:  Contains: \
+    a. A cut-down OS \
+    b. A runtime environment \
+    c. Application files \
+    d. Third-party libraries \
+    e. Environment variables \
 
  Google Gemini: (Just to add some details)
  is essentially a self-contained blueprint for creating a Docker container. Here's a breakdown:
