@@ -549,43 +549,50 @@ E.g.,
 printenv PATH
     - displays the value of 'PATH'
 ```
-3. You can also view value of a particular variable by echo but here you have to prefix it with `'$'`. 
+3. You can also view value of a particular variable by `echo` but here you have to prefix it with `'$'`. 
 E.g.,:
 ```bash
 echo $<variable>
 echo <PATH>
 ```
-4. We can set a variable using 'export' command
+4. We can set a variable using 'export' command:
 ```bash
 export DB_USER=zaman
-- puts 'zaman' in DB_USER as an environmental variable.
-- this is active for the current session only. So, if we were to close this terminal session and open another session. We will `not` get the environmental variable.
-- So, we can get the value we can either type 
-    echo $DB_USER
-    or
-    printenv DB_USER
-    and we will get the same result as 'zaman' set earlier
+    - puts 'zaman' in DB_USER as an environmental variable.
+    - this is active for the current session only. So, if we were to close this terminal session 
+    and open another session. We will `not` get the environmental variable.
+    - So, we can get the value we can either type:
+        echo $DB_USER
+        or
+        printenv DB_USER
+        and we will get the same result as 'zaman' set earlier
 ```
 5. To make a variable `persistent`, we have to write the variable in a `special file`. The name of the file is `".bashrc"`. You will find this file in your home directory. So, to be able to see it type:
 ```bash
 ls -a
     - lists all the files and dir including the hidden ones
     - Here you will find '.bashrc'
-    - You can either type 'vi .bashrc' and start editing the file and declare you variable here or simple append by:
+    - You can either type 'vi .bashrc' and start editing the file and declare you variable 
+    here or simple append by:
 
 echo DB_USER=zaman >> .bashrc
     - adds another line 'DB_USER=zaman' in the file 'bashrc'
-    - now, there is a small limitation to this is that the appended environment variable will be active in another session of the terminal. Meaning you have to stop this session and begin a new one to see the result.
+    - now, there is a small limitation to this is that the appended environment variable will 
+    be active in another session of the terminal. Meaning you have to stop this session and 
+    begin a new one to see the result.
 ```
-6. We can use the source command to reload the '.bashrc' file.
-    source .bashrc
+6. We can use the source command to reload the `'.bashrc'` file.
+```bash
+source .bashrc
     - reloads the '.bashrc' file.
     - we have to execute it from our home directory.
-    If you are not in your home directory use the below command:
-    source ~/.bashrc
+```
+If you are not in your home directory use the below command:
+```bash
+source ~/.bashrc
     - reloads the '.bashrc' file WHEN YOU ARE NOT IN YOUR HOME DIRECTORY
-
-lesson24 - Managing Processes
+```
+#### lesson24 - Managing Processes
 
 A process is an instance of a running programme. To see all the running 
 programme or all the running processes we type:
@@ -593,40 +600,50 @@ programme or all the running processes we type:
     - displays all the running processes
 
 1. To kill a process:
-    kill <process_ID>
+
+```bash
+kill <process_ID>
     - kills a particular process.
+```
 
+#### lesson25 - Managing Users
 
-lesson25 - Managing Users
-
-1. useradd
+1. Adding a user:
+```bash
+useradd
     - adding a new user
-    - this command lists all the options/flag that can be used with this
-        command.
-    useradd -m zaman
+    - this command lists all the options/flag that can be used with this command.
+useradd -m zaman
     - adds a new user 'zaman'
     - '-m' flag means creating a user's home directory (use 'useradd' for
         explaination)
-
-2. usermod
+```
+2. Modifying a user:
+```bash
+usermod
     - modifying a user
-
-3. userdel
+```
+3. Deleting a user:
+```bash
+userdel
     - deleting a user
+```
+4. To view all the users we can view the folder `'/etc/passwd'` like:
+```bash
+cat /etc/passwd
+- lists all the users. Not Password. Name is misleading.
+```
 
-4. To view all the users we can view the folder '/etc/passwd' like:
-    cat /etc/passwd
-    - lists all the users. Not Password. Name is misleading.
-
-5. Let us understand what a single line means in the file '/etc/passwd':
-    zaman:x:1000:1000::/home/zaman:/bin/sh
-    - 'zaman' is the user's name
-    - ':' is a separator
-    - '1000' - first one is the user ID
-    - '1000' - second one is group ID
-    - '/home/zaman' - home directory of the user
-    - '/bin/sh' - shell programme used when this user logs in
-
+5. Let us understand what a single line means in the file `'/etc/passwd'`:
+```bash
+zaman:x:1000:1000::/home/zaman:/bin/sh
+    - `'zaman'` is the user's name
+    - `':'` is a separator
+    - `'1000'` - first one is the user ID
+    - `'1000'` - second one is group ID
+    - `'/home/zaman'` - home directory of the user
+    - `'/bin/sh'` - shell programme used when this user logs in
+```
 6. After seeing the above details from the user 'zaman'. Let us say that 
     we decide to modify the user and use another shell programme for the 
     user.
