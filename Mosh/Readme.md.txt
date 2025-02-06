@@ -32,8 +32,8 @@ A:  a. Allow multiple apps in isolation
 7. Docker Archtecture
 A: Docker works on client server architecture. The client is connected and 
     talks to the server component by Rest API and the server is known as 
-    "Docker Engine".
-    Docker Engine sits in the background and takes care of building and 
+    "Docker Engine"/docker daemon.
+    Docker Daemon sits in the background and takes care of building and 
     running containers.
     Container don't use full-blown OS. Instead, all the containers of 
     the host share the OS. Infact, all containers share the kernel of the 
