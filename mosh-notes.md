@@ -41,11 +41,11 @@ A: A kernel manages the application and hardware resources.
 9. Docker Image:
 
 A:  Contains: \
-    a. A cut-down OS \
-    b. A runtime environment \
-    c. Application files \
-    d. Third-party libraries \
-    e. Environment variables
+    a. A `cut-down OS` \
+    b. A `runtime environment` \
+    c. `Application files` \
+    d. Third-party `libraries` \
+    e. `Environment variables`
 
  Google Gemini: (Just to add some details)
  is essentially a self-contained blueprint for creating a Docker container. Here's a breakdown:
