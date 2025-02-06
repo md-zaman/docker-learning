@@ -114,44 +114,51 @@ docker run -it ubuntu
 ---------------------
 Henceforth, lesson-wise
 
-### lesson12- Linux Distributions
+#### lesson12- Linux Distributions
 1. Linux is an opensource OS
 
 2. Linux comes with a lot of Distributions
 
-3. Eg.,
-    a. ubuntu
-    b. Debian
-    c. Alpine
+3. Eg., \
+    a. ubuntu \
+    b. Debian \
+    c. Alpine \
     d. CentOS
 
-lesson13 - Running Linux
+#### lesson13 - Running Linux
 
-1. To use Linuxs' particular OS say ubuntu we can type 
+1. To use Linuxs' particular OS say ubuntu we can type:
+```bash
     docker pull ubuntu
     - pulls the ubuntu image
+```
 
-    or instead of using pull, we can use:
-    docker run ubuntu
-    -runs the ubuntu container but if it's not available, it will download 
-    it and then run
-
-2. Although we have downloaded the container and run it, since we didn't 
-    interact with it, so it stopped.
+or instead of using `pull`, we can use:
+```bash
+docker run ubuntu
+    -runs the ubuntu container but if it's not available, it will download it and then run
+```
+2. Although we have downloaded the container and run it, since we didn't interact with it, so it stopped.
     - so if we do not interact with a container, it will stop
 
     To check we can write:
-    docker ps 
+```bash
+docker ps 
     (to check the running processes, since a container is a process)
-    We will find nothing
-    But when we write:
-    docker ps -a
+```
+We will find nothing
+But when we write:
+```bash 
+docker ps -a
     - checks all the process, even if any container has stopped
+```
 3. To start a container and interact with it:
-    docker run -it <container_name>
-    docker run -it ubuntu
+docker run -it <container_name>
+```bash
+docker run -it ubuntu
     -starts a container in interaction mode.
     -this will open a shell prompt
+```
 
 4. Linux is a case sensitive OS
 
