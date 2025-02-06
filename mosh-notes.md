@@ -52,13 +52,13 @@ A:  Contains:
     d. Third-party libraries
     e. Environment variables
 
-    Google Gemini: (Just to add some details)
-    is essentially a self-contained blueprint for creating a Docker container. Here's a breakdown:
+ Google Gemini: (Just to add some details)
+ is essentially a self-contained blueprint for creating a Docker container. Here's a breakdown:
 
-    - `Immutable`: Once built, the image itself cannot be changed. Think of it as a fixed recipe.
-    - `Versioned`: Images can have versions, allowing you to track changes and ensure consistency across deployments.
-    - `Shareable`: Images can be easily shared with others through public registries (like Docker Hub or ECR) or private ones within your organisation.
-    - `Reusable` : A single image can be used to create multiple running containers, ensuring consistent environments.
+ - `Immutable`: Once built, the image itself cannot be changed. Think of it as a fixed recipe.
+ - `Versioned`: Images can have versions, allowing you to track changes and ensure consistency across deployments.
+ - `Shareable`: Images can be easily shared with others through public registries (like Docker Hub or ECR) or private ones within your organisation.
+ - `Reusable` : A single image can be used to create multiple running containers, ensuring consistent environments.
 
 
 10. Container:
