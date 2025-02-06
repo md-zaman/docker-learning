@@ -15,7 +15,7 @@ a: With docker we package the application with all that it needs and run it anyw
 4. Container vs Virtual machine \
 A:  `Container`- An isolated environment for running an app. \
     `Virtual machine`- An abstraction of a machine (physical hardware).
-    (Add more from hand written notes from Abhishek Veeramalla)
+    (Add more from hand written notes AV)
 
 5. Problems with virtual machine? \
 A:  a. Each virtual machine needs a `full-blown OS` \
