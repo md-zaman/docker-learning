@@ -240,16 +240,16 @@ apt remove nano
 Below that we have some standard directories:
 
 ```bash
-    / \
-    bin \
-    boot \
-    dev \
-    etc \
-    home \
-    root \
-    lib \
-    var \
-    proc \
+    / 
+    bin 
+    boot 
+    dev 
+    etc 
+    home 
+    root 
+    lib 
+    var 
+    proc 
 ```
     Just a brief explaination:
     
