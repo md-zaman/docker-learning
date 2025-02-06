@@ -1,43 +1,37 @@
 1. What is Docker? \
-A: Docker is a platform for running, building and shipping application.
+A: Docker is a platform for `running`, `building` and `shipping` application.
 
-2. Why an applications works on your machine but doesn't elsewhere/ Need for Docker?
+2. Why an applications works on your machine but doesn't elsewhere/ Need for Docker? \
 A:  a. Missing one or more files
     b. Software version mismatch. The software which it's dependent on is 
         of different version.
     c. Different configuration settings.
 
-3. How does docker do?
+3. How does docker do? \
 a: With docker we package the application with all that it needs and run it anywhere.
 
-4. Container vs Virtual machine
+4. Container vs Virtual machine \
 A:  `Container`- An isolated environment for running an app.
     `Virtual machine`- An abstraction of a machine (physical hardware).
     (Add more from hand written notes from Abhishek Veeramalla)
 
-5. Problems with virtual machine?
-A:  a. Each virtual machine needs a full-blown OS
-    b. Slow to start
-    c. Resource intensive
+5. Problems with virtual machine? \
+A:  a. Each virtual machine needs a ~full-blown OS~
+    b. `Slow` to start
+    c. `Resource` intensive
 
-6. Containers
+6. Containers \
 A:  a. Allow multiple apps in isolation
     b. Are lightweight
     c. Use OS of the host
     d. Starts quickly
     d. Needs less hardware resources
 
-7. Docker Archtecture
-A: Docker works on client server architecture. The client is connected and 
-    talks to the server component by Rest API and the server is known as 
-    "Docker Engine"/ Docker Daemon.
-    Docker Daemon sits in the background and takes care of building and 
-    running containers.
-    Container don't use full-blown OS. Instead, all the containers of 
-    the host share the OS. Infact, all containers share the kernel of the 
-    host.
+7. Docker Archtecture \
+A: Docker works on client server architecture. The client is connected and talks to the server component by Rest API and the server is known as `Docker Engine/ Docker Daemon`.Docker Daemon sits in the background and takes care of building and running containers.
+    Container don't use full-blown OS. Instead, all the containers of the host share the OS. Infact, all containers share the kernel of the host.
 
-8. Kernel
+8. Kernel \
 A: A kernel manages the application and hardware resources.
 
     Explaination:
