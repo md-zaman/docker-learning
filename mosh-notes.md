@@ -3,7 +3,7 @@
 1. What is Docker? \
 A: Docker is a platform for `running`, `building` and `shipping` application.
 
-2. Why an applications works on your machine but doesn't elsewhere/ Need for Docker? \
+2. Why an applications works on your machine but doesn't elsewhere/ Need for Docker?
  - a. Missing one or more files
  - b. Software version mismatch. The software which it's dependent on is of different version.
  - c. Different configuration settings.
