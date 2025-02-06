@@ -75,7 +75,7 @@ A:  Contains: \
 7. docker version
     - displays the docker version
 
-# LINUX
+# Linux
 
 11. Linux is an opensource OS
 
