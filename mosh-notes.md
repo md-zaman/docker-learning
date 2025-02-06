@@ -239,17 +239,18 @@ apt remove nano
 1. In linux, we have the root directory on top which is represented as "/". \
 Below that we have some standard directories:
 
-    /
-    bin
-    boot
-    dev
-    etc
-    home
-    root
-    lib
-    var
-    proc
-
+```bash
+    / \
+    bin \
+    boot \
+    dev \
+    etc \
+    home \
+    root \
+    lib \
+    var \
+    proc \
+```
     Just a brief explaination:
     
     /    - root
