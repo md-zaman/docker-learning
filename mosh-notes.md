@@ -57,7 +57,7 @@ A:  Contains: \
 
 
 10. Container:
-    A container is a **process**. But is it a ***special*** kind of process which has its own **filesystem**.
+    A container is a `process`. But is it a ***special*** kind of process which has its own `filesystem`.
 
     Google Gemini:
     A Docker container, building on the image analogy, is the cooked pizza from the Docker image recipe. Here's a breakdown:
@@ -80,14 +80,17 @@ A:  Contains: \
 11. Linux is an opensource OS
 
 2. Using ubuntu on docker: \
-a. Instead of using "docker pull ubuntu" the shortcut can be:
-    docker run ubuntu
+a. Instead of using "docker pull ubuntu" the shortcut can be: \
+    docker run ubuntu \
     (If the image exists then it will simply run but if it doesn't exists, 
     it will pull(download from the repo/dockerhub) and run)
 
-3. docker ps 
+3. To display all the containers:
+```bash
+docker ps 
     - checks all the docker process it is running (running container is a 
     process)
+```
 
 4. docker ps -a
     displays all the containers even if it is stopped 
