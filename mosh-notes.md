@@ -729,8 +729,8 @@ To get the permission of any file we have to view the long listing:
             extension)
 
 ======= \
-Docker \
-=======
+# Docker 
+======= \
 Section 4
 
 lesson28 - Building Images
