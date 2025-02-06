@@ -529,7 +529,7 @@ mkdir hello;\
 > echo done
 ```
 
-### lesson23 - Environment Variables
+#### lesson23 - Environment Variables
 
 **Explaination**: Environment variables in Linux are basically `name-value pairs` that control how programs run. They're like mini settings menus for your shell and applications.
 It is used for `storing configuration setting` for our applications. So, our applications can read configuration settings from this env variables.
