@@ -294,78 +294,87 @@ Very basic commands:
 
 #### lesson 17 - Manipulating Files and Directories
 
-1. cd ~
+1. To take you to the home dir:
+```bash
+cd ~
     - takes you to the home directory
-
-2. mv
+```
+2. Move/cut or Rename a file/dir:
+```bash
+mv
     - moves files or directories. Requires more options here.
-
-3. touch hello.txt
-    - to create a file in txt. touch command is used to create files 
-    and mkdir to create directories.
-
+```
+3. To create a file in *.txt* format:
+```bash
+touch hello.txt
+    - to create a file in txt. touch command is used to create files and mkdir to create directories.
+```
 4. rm
     - removes file/files (deletes)
 
-5. rm -r
-    - removes directories '-r' stands for recursive which means all 
-    its content also.
-
-6. mkdir
+5. To remove a file/dir:
+```bash
+rm -r
+    - removes directories '-r' stands for `recursive` which means all its content also.
+```
+6. Create a dir:
+```bash
+mkdir
     - makes a new directory
-    
-
-
-Very easy commands for used for editing and viewing documents. Hence explained in very brief.
-
- 1. mkdir
-    - creates a directory
-
- 2. mv
-    - renames/ moves the file from current directory to elsewhere.
-
- 3. touch <file_name>
-    - creates a file
+```    
  
- 4. touch <file_name1> <file_name2> <file_name3>
+7. Creating multiple files at once:
+```bash
+touch <file_name1> <file_name2> <file_name3>
     - creates multiple files at opensource
-
-5. ls -1
+```
+8. List all the files/dir one per line:
+```bash
+ls -1
     - lists the files. One file in one line.
-
-6. ls -l
+```
+9. List files/dir in detail:
+```bash
+ls -l
     - lists the files. One file in one line but with details.
-
-7. rm
+```
+10. Removing a file using the *rm command*. Variations on the *rm command*:
+```bash
+rm
     - removes a file. There are different ways you can used in shown below:
 
-    rm file_name1
+rm <file_name1>
     - removes a file
 
-    rm <file_name1> <file_name2> <file_name3>
+rm <file_name1> <file_name2> <file_name3>
     - removes multiple files at once.
 
-    rm file*
-    - removes all directory using a pattern. This will remove all 
-        directories having "file" in it
+rm file*
+    - removes all directory using a pattern. This will remove all directories having "file" in it
 
-    rm -r <directory_name>
+rm -r <directory_name>
     - removes directory having files inside. "-r" is recursive
-
+```
 #### lesson17 - Editing and Viewing files
 
-Nano is a simple text editor in Linux. To install nano type:
+**Nano** is a simple text editor in Linux. To install nano type:
 
-1. apt install nano
+1. Installing nano with apt package manager in ubuntu:
+```bash
+apt install nano
     - installs nano text editor
-
-2. nano file_name1.txt
+```
+2. Create a file and open nano editor:
+```bash
+nano file_name1.txt
     - creates a txt file and opens in nano editor
-
-3. cat
+```
+3. Displaying file content:
+```bash
+cat
     - displays what is inside the file. It is short for concatenate
-
-4. Similar to "cat" command we have the following command to view large files. Here, we don't have to scroll and see our file instead we get an interface with some. We can simply type: \
+```
+4. Similar to "cat" command we have the following command to view large files. Here, we don't have to scroll and see our file, instead, we get an interface with some. We can simply type: \
 ```bash
 more
     - displays what is inside the file
@@ -422,35 +431,34 @@ grep = Global Regular Expression Print
 
 We will see how this works using some commands and their explaination
 
-1. grep hello file.txt
+1. Using grep:
+```bash
+grep hello file.txt
     - searches for the word/string "hello" in the file
-    - use "-i" option/ flag to make it case in-sensitive. E.g.,
+    - use "-i" option/flag to make it case in-sensitive. E.g.,
     grep -i hello file.txt
-    - searches for the word hello. Now this will display even if it is
-        written in uppercase.
-
+    - searches for the word hello. Now this will display even if it is written in uppercase.
+```
 2. grep -i root /etc/passwd
     - displays the word root in the file 
 
 3. grep -i hello file1.txt file2.txt
     - or
     grep -i hello file*
-    - means the same thing as above. We have used a wildcard which means 
-        any file having "file" written in the beginning and whatever 
-        after that.
+    - means the same thing as above. We have used a wildcard which means any file having "file" written in the beginning and whatever after that.
 
 2. To search in a directory:
-    grep -i -r hello .
-    - searches the word "hello" in the current directory in all the files
-    - In linux we can combine the options or flags also. So the the above 
-        command can be written as:
-        grep -ir hello .
+```bash
+grep -i -r hello .
+- searches the word "hello" in the current directory in all the files
+- In linux we can combine the options or flags also. So the the above command can be written as:
+    grep -ir hello .
+```
 
-lesson21 - Finding Files and Directories
+#### lesson21 - Finding Files and Directories
 
 1. find
-    - lists all the files and the directory in the current directory 
-        recursively. Lists even the hidden ones.
+    - lists all the files and the directory in the current directory recursively. Lists even the hidden ones.
 
 2. ls -a
      - lists everything in a directory including the hidden ones
@@ -478,95 +486,100 @@ lesson21 - Finding Files and Directories
     find / -type f -name "*.py" > python-files.txt
     - just redirects the result in a txt file.
 
-lesson22 - Chaining commands
+#### lesson22 - Chaining commands
 
 We can chain or combine different commands like
 
-1. mkdir test ; cd test ; echo done
+1. Chaining commands:
+```bash
+mkdir test ; cd test ; echo done
     - all the above commands can get executed one after the other
     - adding space is optional
     - using semicolon, we can combine/ chain linux commands
+```
+2. If we execute the same command again, we will get an error for the first command because directory 'test' already exists but the rest commands will be executed.
 
-2. If we execute the same command again, we will get an error for the first
-    command because directory 'test' already exists but the rest commands 
-    will be executed.
-
-3. We can use the and operator (&&). If one command fails, other commands 
-    won't get executed:
-    mkdir test && cd test && echo done
-
-4. We can also use the or operator (||). If the 1st command gets executed 
-    the 2nd command doesn't get executed but if the 1st command doesn't 
-    get executed the 2nd command gets executed:
-    mkdir test || echo "Directory Exists"
-
-5. Another way to chain commands is piping. What it essentially do here is
-    get the output of the 1st command and put it to the next command.
-    ls /bin | less
-    - lists all the output of the ls /bin commmand and displays in 'less'.
-    - Ref. lesson17, serial 5
-
-    ls /bin | head -n 5
+3. We can use the and operator (&&). If one command fails, other commands won't get executed:
+```bash
+mkdir test && cd test && echo done
+```
+4. We can also use the or operator (||). If the 1st command gets executed the 2nd command doesn't get executed but if the 1st command doesn't get executed the 2nd  gets executed:
+```bash
+mkdir test || echo "Directory Exists"
+```
+5. Another way to chain commands is piping. What it essentially do here is get the output of the 1st command and put it to the next command.
+```bash
+ls /bin | less
+- lists all the output of the ls /bin commmand and displays in 'less'.
+- Ref. lesson17, serial 5
+```
+```bash
+ls /bin | head -n 5
     - displays 5 lines from the head (top)
+```
+6. Splitting commands in multiple lines. We can use '\' to end the line and after that we can press enter and write other commands. This ensure that whenever we have a long command we don't have to scroll horizontally to go through the entire command. \
+So, instead of:
+```bash
+mkdir hello ; cd hello ; echo done
+```
+We can write:
+```bash
+mkdir hello;\
+> cd hello; \
+> echo done
+```
 
-6. Splitting commands in multiple lines. We can use '\' to end the line and
-    after that we can press enter and write other commands. This ensure
-    that whenever we have a long command we don't have to scroll 
-    horizontally to go through the entire command
-    mkdir hello ; cd hello ; echo done
+### lesson23 - Environment Variables
 
-    mkdir hello;\
-    > cd hello; \
-    > echo done
+**Explaination**: Environment variables in Linux are basically `name-value pairs` that control how programs run. They're like mini settings menus for your shell and applications.
+It is used for `storing configuration setting` for our applications. So, our applications can read configuration settings from this env variables.
 
-
-lesson23 - Environment Variables
-
-Explaination: Environment variables in Linux are basically name-value 
-    pairs that control how programs run. They're like mini settings menus 
-    for your shell and applications.
-    Used for storing configuration setting for our applications. So, our 
-    applications can read configuration settings from this env variables.
-
-1. printenv
+1. To display all the env variables:
+```bash
+printenv
     - displays all the environmental variables in this machine
+```
+2. Printing a particular env value:
+```bash
+printenv <variable>
 
-2. printenv <variable>
-    printenv PATH
+```
+E.g., 
+```bash
+printenv PATH
     - displays the value of 'PATH'
-
-3. You can also view value of a particular variable by echo but here you 
-    have to prefix it with '$' by:
-    echo $<variable>
-    echo <PATH>
-
+```
+3. You can also view value of a particular variable by echo but here you have to prefix it with `'$'`. 
+E.g.,:
+```bash
+echo $<variable>
+echo <PATH>
+```
 4. We can set a variable using 'export' command
-    export DB_USER=zaman
-    - puts 'zaman' in DB_USER as an environmental variable.
-    - this is active for the current session only. So, if we were to close
-        this terminal session and open another session. We will not get
-        the environmental variable.
-    - So, we can get the value we can either type 
-        echo $DB_USER
-        or
-        printenv DB_USER
-        and we will get the same result as 'zaman' set earlier
+```bash
+export DB_USER=zaman
+- puts 'zaman' in DB_USER as an environmental variable.
+- this is active for the current session only. So, if we were to close this terminal session and open another session. We will `not` get the environmental variable.
+- So, we can get the value we can either type 
+    echo $DB_USER
+    or
+    printenv DB_USER
+    and we will get the same result as 'zaman' set earlier
+```
+5. To make a variable `persistent`, we have to write the variable in a `special file`. The name of the file is `".bashrc"`. You will find this file in your home directory. So, to be able to see it type:
+```bash
+ls -a
+- lists all the files and dir including the hidden ones
+- Here you will find '.bashrc'
+- You can either type 'vi .bashrc' and start editing the file and declare you variable here or simple append by:
 
-5. To make a variable persistent, we have to write the variable in a 
-    special file. The name of the file is ".bashrc". You will find this 
-    file in your home directory. So, to be able to see it type:
-    ls -a
-    - lists all the files and dir including the hidden ones
-    Here you will find '.bashrc'
-    You can either type 'vi .bashrc' and start editing the file and 
-    declare you variable here or simple append by:
-    echo DB_USER=zaman >> .bashrc
-    - adds another line 'DB_USER=zaman' in the file 'bashrc'
-    - now, there is a small limitation to this is that the appended
-        environment variable will be active in another session of the
-        terminal. Meaning you have to stop this session and begin a new 
-        one to see the result.
-
+echo DB_USER=zaman >> .bashrc
+- adds another line 'DB_USER=zaman' in the file 'bashrc'
+- now, there is a small limitation to this is that the appended
+    environment variable will be active in another session of the
+    terminal. Meaning you have to stop this session and begin a new 
+    one to see the result.
+```
 6. We can use the source command to reload the '.bashrc' file.
     source .bashrc
     - reloads the '.bashrc' file.
