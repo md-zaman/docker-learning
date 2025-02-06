@@ -1,3 +1,5 @@
+# Docker Basics
+
 1. What is Docker? \
 A: Docker is a platform for `running`, `building` and `shipping` application.
 
@@ -18,17 +20,17 @@ A:  `Container`- An isolated environment for running an app. \
 5. Problems with virtual machine? \
 A:  a. Each virtual machine needs a `full-blown OS` \
     b. `Slow` to start \
-    c. `Resource` intensive \
+    c. `Resource` intensive
 
 6. Containers \
 A:  a. Allow *multiple* apps **in isolation** \
     b. Are **lightweight** \
     c. Use Host's OS \
     d. Starts **quickly** \
-    d. Needs **less hardware resources** \
+    d. Needs **less hardware resources**
 
 7. Docker Archtecture \
-A: Docker works on `client-server` architecture. The client is connected and talks to the server component by **Rest API** and the server is known as `Docker Engine/ Docker Daemon`. ***Docker Daemon*** sits in the background and takes care of building and running containers.
+A.  Docker works on `client-server` architecture. The client is connected and talks to the server component by **Rest API** and the server is known as `Docker Engine/ Docker Daemon`. ***Docker Daemon*** sits in the background and takes care of building and running containers.
     Container don't use full-blown OS. Instead, all the containers of the host share the OS. Infact, all containers share the kernel of the host.
 
 8. Kernel \
@@ -44,7 +46,7 @@ A:  Contains: \
     b. A runtime environment \
     c. Application files \
     d. Third-party libraries \
-    e. Environment variables \
+    e. Environment variables
 
  Google Gemini: (Just to add some details)
  is essentially a self-contained blueprint for creating a Docker container. Here's a breakdown:
@@ -56,25 +58,15 @@ A:  Contains: \
 
 
 10. Container:
-    A container is a process. But is it a special kind of process which 
-    has its own filesystem.
+    A container is a **process**. But is it a ***special*** kind of process which has its own **filesystem**.
 
     Google Gemini:
-    A Docker container, building on the image analogy, is the cooked pizza 
-    from the Docker image recipe. Here's a breakdown:
+    A Docker container, building on the image analogy, is the cooked pizza from the Docker image recipe. Here's a breakdown:
 
-    - Executable Instance: A container is a running instance of a Docker 
-            image. It's the actual application or service you want to 
-            deploy.
-    - Isolated Environment: Each container runs in its own isolated space, 
-            sharing the operating system kernel with other containers but 
-            keeping applications separate.
-    - Lightweight & Portable: Containers are lightweight and efficient 
-            because they share the kernel. This also makes them portable 
-            and able to run consistently across different environments.
-    - Dynamic: Unlike the image, a container can be modified while running. 
-            You can add files, install additional software, or change 
-            configurations.
+    - `Executable Instance`: A container is a running instance of a Docker. It's the actual application or service you want to deploy.
+    - `Isolated Environment`: Each container runs in its own isolated space, sharing the operating system kernel with other containers but keeping applications separate.
+    - `Lightweight & Portable`: Containers are lightweight and efficient because they share the kernel. This also makes them portable and able to run consistently across environments.
+    - `Dynamic`: Unlike the image, a container can be modified while running. You can add files, install additional software, or change configurations.
 
 6. docker images
     or (alternate command)
@@ -84,17 +76,17 @@ A:  Contains: \
 7. docker version
     - displays the docker version
 
-LINUX
+# LINUX
 
 11. Linux is an opensource OS
 
-2. Using ubuntu on docker:
+2. Using ubuntu on docker: \
 a. Instead of using "docker pull ubuntu" the shortcut can be:
     docker run ubuntu
     (If the image exists then it will simply run but if it doesn't exists, 
     it will pull(download from the repo/dockerhub) and run)
 
-3. docker ps
+3. docker ps 
     - checks all the docker process it is running (running container is a 
     process)
 
