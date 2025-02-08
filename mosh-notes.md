@@ -898,32 +898,29 @@ Just a front-end react app
     - COPY    - for copying files/ directories
     - ADD     - for copying files/ directories (will add more)
     - RUN     - to use Operating System commands
-    - ENV - for setting environment variables
-    - EXPOSE - for telling docker that our container is starting on a given port.
-    - USER - for specifying the user that should run the application. 
-            Typically, we want to run our application using a user with limited privileges.
-    - CMD - for specifying the command that has to be executed when we start a container.
+    - ENV     - for setting environment variables
+    - EXPOSE  - for telling docker that our container is starting on a given port.
+    - USER    - for specifying the user that should run the application. 
+                Typically, we want to run our application using a user with limited privileges.
+    - CMD     - for specifying the command that has to be executed when we start a container.
     - ENTRYPOINT - for specifying the command that has to be executed when we start a container. (MORE INFO LATER)
 
-lesson32 - Choosing the Right Base Image
+#### lesson32 - Choosing the Right Base Image
 
 A Dockerfile is a list of instructions
 
-Dockerfile: A Dockerfile is a plain text document containing instructions 
-    for Docker to build a specific image.  Each line specifies a step, 
-    like installing software, copying files, or configuring settings. It 
-    essentially automates the image building process for consistency and 
-    reusability.
+**Dockerfile**: \
+    A Dockerfile is a plain text document containing instructions for Docker to build a specific image.  \
+    Each line specifies a step, like installing software, copying files, or configuring settings. \
+    It essentially automates the image building process for consistency and reusability.
 
 1. Base Image: FROM
-    FROM is used to specify the base image. The base image can be an OS
-        like Linux or Windows or it can be an OS plus a runtime 
-        environment.
+    FROM is used to specify the base image. \
+    The base image can be an OS like Linux or Windows or it can be an OS plus a runtime environment.
 
 2. Full URLs in FROM:
-     So an image can be in any registry. The default registry docker uses
-        is dockerhub. If the image is in some other registry, we have to
-        type the full URL
+    So an image can be in any registry. The default registry docker uses is dockerhub. \
+    If the image is in some other registry, we have to type the full URL
 
 3. latest tag:
     FROM node:latest
