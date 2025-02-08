@@ -867,7 +867,7 @@ In this section we will learn:
 
     Tabular format:
 
-    | Feature           | Containers                                    | Virtual Machines                             |
+| Feature           | Containers                                    | Virtual Machines                             |
 |------------------|--------------------------------|----------------------------------|
 | **Level of Virtualization** | Virtualizes the **OS layer**. | Virtualizes the **entire hardware layer** (CPU, memory, storage). |
 | **Isolation** | Shares the kernel with other containers, but applications are isolated. | Each VM has its own **isolated OS** and applications. |
