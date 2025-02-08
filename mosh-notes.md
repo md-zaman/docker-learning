@@ -932,9 +932,11 @@ A Dockerfile is a list of instructions
     b. Build a docker image with the docker build command and \
     c. Run the container
 
-    a. Dockerfile:
-    FROM node:14.16.0-alpine3.13
+    a. Dockerfile: \
+    ```bash
+    FROM node:14.16.0-alpine3.13 \
     (*just an example)
+    ```
 
     b. Build the image with following command:
     docker build -t <tag-a-name> <Dockerfile_path>
