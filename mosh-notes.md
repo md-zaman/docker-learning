@@ -802,7 +802,7 @@ chmod og+x+w-r deploy.sh
 
 Section 4
 
-lesson28 - Building Images
+#### lesson28 - Building Images
 
 In this section we will learn:
     - Creating Docker files
@@ -812,49 +812,38 @@ In this section we will learn:
     - Reducing the image size
     - Speeding up builds
 
-lesson29 - Images and Containers
+#### lesson29 - Images and Containers
 
-1. Image: An image contains everything an application needs to run. It 
-    contains all the files and configuration settings needed to run an 
-    application. Once we have an image we can start a container from it.
+1. Image: An image contains everything an application needs to run. It contains all the files and configuration settings needed to run an application. Once we have an image we can start a container from it.
 
-2. An image contains:
-    a. A cut-down OS
-    b. Third-party libraries
-    c. Application files
+2. An image contains: \
+    a. A cut-down OS \
+    b. Third-party libraries \
+    c. Application files \
     d. Environment variable
 
-    From Gemini (Google's AI)
+    From Gemini (Google)
     Image:
-    - Template: A blueprint that defines the contents and configuration 
-        of a container.
+    - Template: A blueprint that defines the contents and configuration of a container.
     - Immutable: Once created, the image itself cannot be modified.
-    - Versioned: Images can be versioned to track changes and ensure 
-        consistency.
-    - Shareable: Images can be easily shared across machines and 
-        registries for deployment.
+    - Versioned: Images can be versioned to track changes and ensure consistency.
+    - Shareable: Images can be easily shared across machines and registries for deployment.
     - Reusable: The same image can be used to create multiple containers.
 
-3. Container: A container is like an isolated Operating System.
+3. Container: A container is like an isolated Operating System. \
     Features:
     - Provides an isolated environment
     - Can be stopped & restarted (Similar to virtual machines)
     - Technically, it is just a process.
-        but it's a special kind of process which has it own file System
-        provided by the image.
+        but it's a special kind of process which has it own file System provided by the image.
 
-    From Gemini (Google's AI)
+    From Gemini (Google)
     Containers:
-    - Package: Contains an application and its dependencies (libraries, 
-        frameworks) all bundled together.
-    - Isolated: Runs in its own isolated environment, not directly on the 
-        host system.
-    - Portable: Works consistently across different environments (dev, 
-        test, prod) due to self-contained nature.
-    - Lightweight: Shares the OS kernel with other containers, making 
-        them efficient.
-    - Scalable: Containers can be easily spun up and down, making them 
-        ideal for microservices architectures.
+    - Package: Contains an application and its dependencies (libraries, frameworks) all bundled together.
+    - Isolated: Runs in its own isolated environment, not directly on the host system.
+    - Portable: Works consistently across different environments (dev, test, prod) due to self-contained nature.
+    - Lightweight: Shares the OS kernel with other containers, making them efficient.
+    - Scalable: Containers can be easily spun up and down, making them ideal for microservices architectures.
 
     Difference between Containers and Virtual machines
     - Level of Virtualization:
@@ -875,6 +864,17 @@ lesson29 - Images and Containers
             stateless applications.
         VM: Suitable for running legacy applications, different operating 
             systems, or environments requiring more isolation.
+
+    Tabular format:
+
+    | Feature           | Containers                                    | Virtual Machines                             |
+|------------------|--------------------------------|----------------------------------|
+| **Level of Virtualization** | Virtualizes the **OS layer**. | Virtualizes the **entire hardware layer** (CPU, memory, storage). |
+| **Isolation** | Shares the kernel with other containers, but applications are isolated. | Each VM has its own **isolated OS** and applications. |
+| **Resource Usage** | Lightweight and fast to start. | More resource-intensive and slower to start. |
+| **Portability** | Highly portable due to self-contained nature. | Less portable due to potential hardware dependency. |
+| **Use Cases** | Ideal for **microservices** and **stateless apps**. | Suitable for **legacy apps**, different OS environments, and workloads needing strong isolation. |
+
 
 
 lesson30 - Sample Web Application
