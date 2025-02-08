@@ -877,7 +877,7 @@ In this section we will learn:
 
 
 
-lesson30 - Sample Web Application
+#### lesson30 - Sample Web Application
 
 Just a front-end react app
 
@@ -886,30 +886,24 @@ Just a front-end react app
     - npm install (using npm we have to install 3rd party dependencies)
     - npm start
 
-2. This process will be followed for any other stack also. like c 
-    sharp or whatever
+2. This process will be followed for any other stack also. like c sharp or whatever
 
-lesson 31 - Dockerfile Instructions
+#### lesson 31 - Dockerfile Instructions
 
 1. Dockerfile: A Dockerfile contains instructions for building an image
 
 2. Contains:
-    - FROM - To specify the base image. (The cut-down OS mentioned earlier)
-    - WORKDIR - Working Directory. Once we specify this directory all the 
-                following command will be executed here
-    - COPY - for copying files/ directories
-    - ADD - for copying files/ directories (will add more)
-    - RUN - to use Operating System commands
+    - FROM    - To specify the base image. (The cut-down OS mentioned earlier)
+    - WORKDIR - Working Directory. Once we specify this directory all the following command will be executed here
+    - COPY    - for copying files/ directories
+    - ADD     - for copying files/ directories (will add more)
+    - RUN     - to use Operating System commands
     - ENV - for setting environment variables
-    - EXPOSE - for telling docker that our container is starting on a given
-                port.
+    - EXPOSE - for telling docker that our container is starting on a given port.
     - USER - for specifying the user that should run the application. 
-            Typically, we want to run our application using a user with
-            limited privileges.
-    - CMD - for specifying the command that has to be executed when we 
-            start a container.
-    - ENTRYPOINT - for specifying the command that has to be executed when 
-                    we start a container. (MORE INFO LATER)
+            Typically, we want to run our application using a user with limited privileges.
+    - CMD - for specifying the command that has to be executed when we start a container.
+    - ENTRYPOINT - for specifying the command that has to be executed when we start a container. (MORE INFO LATER)
 
 lesson32 - Choosing the Right Base Image
 
