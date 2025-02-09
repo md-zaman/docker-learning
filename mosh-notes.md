@@ -1051,14 +1051,18 @@ A Dockerfile is a list of instructions
     In order to instruct docker engine to ignore files or directory, we
     have to create a file by the name:
 
-    .dockerignore
+
+    `.dockerignore`
     - create the file as it is (no extension etc.)
     - this is similar to '.gitignore' file
+
+    
     So, suppose we have a directory we want docker engine to ignore. We
     open the '.dockerignore' file and simply type the name of the 
     directory followed by '/' forward slash. E.g.,
 
-    node_modules/
+
+    `node_modules/`
     - this will ignore the above directory.
 
 Here are few terms we should read. Taken from Google Gemini:
