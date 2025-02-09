@@ -67,14 +67,22 @@ A: A kernel manages the application and hardware resources.
     - `Lightweight & Portable`: Containers are lightweight and efficient because they share the kernel. This also makes them portable and able to run consistently across environments.
     - `Dynamic`: Unlike the image, a container can be modified while running. You can add files, install additional software, or change configurations.
 
-6. docker images
+6. Listing doccker images:
+    ```bash
+    docker images
+    ```
     or (alternate command)
+    ```bash
     docker image ls
     -lists all the images
+    ```
 
-7. docker version
+7. To check current docker version:
+    ```bash
+    docker version
     - displays the docker version
-
+    ```
+    
 # Linux
 
 11. Linux is an opensource OS
