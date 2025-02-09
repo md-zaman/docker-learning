@@ -1092,135 +1092,134 @@ It's the tireless worker that builds and manages your containers based on the cl
     RUN apt install python
     ```
 
-lesson36 - Setting Environment Variables
+#### lesson36 - Setting Environment Variables
 
-1. ENV
+1. ENV \
     Sometimes we need to set an environment variable. We can set it by:
+    ```bash
     ENV API_URL=https://api.myapp.com/ 
     - sets an environmental variable
+    ```
 
-    Now rebuild the image and inspect the environment variable:
-     docker build -t react-app .
-     docker run -it react-app sh
-     - this will open the terminal and now we can inspect our environmental
-        variable here. There are 2 commands for it:
-        printenv
-        - lists all env variable
-        printenv API_URL
-        - prints a particular env variable
-        echo $API_URL
-        - with echo you have to add '$'
+Now rebuild the image and inspect the environment variable:
+```bash
+docker build -t react-app .
+docker run -it react-app sh
+- this will open the terminal and now we can inspect our environmental
+variable here. There are 2 commands for it:
+printenv
+- lists all env variable
+printenv API_URL
+- prints a particular env variable
+echo $API_URL
+- with echo you have to add '$'
+```
 
 
-lesson37 - Exposing Ports
+#### lesson37 - Exposing Ports
 
-The EXPOSE command
+`EXPOSE` command
 
-1. EXPOSE is the instruction to tell on which port this container will
-    listening on.
-    The EXPOSE command doesn't automatically publish the port on the 
-    host, it is just a form of documentation that tells us this container
-    will eventually listen on the port mentioned. E.g.,
-     EXPOSE 3000
-     - conveys that this container will be listening of this port- 3000
+1. `EXPOSE` is the instruction to tell on which port this container will listening on. \
+    The EXPOSE command doesn't automatically publish the port on the host, it is just a form of documentation that tells us this container will eventually listen on the port mentioned. E.g.,
 
-     Later on when we run an application on a container, we have to map
-     this port with our host to the container.
+```bash
+EXPOSE 3000
+- conveys that this container will be listening of this port- 3000
+```
+Later on when we run an application on a container, we have to map this port with our host to the container.
 
-lesson38 - Setting the User
+#### lesson38 - Setting the User
 
-The RUN and USER commands
+The `RUN` and `USER` commands
 
-Here we will create a new 'system' user and put it in a group to work in 
-the container
+Here we will create a new 'system' user and put it in a group to work in the container
 
-1. By default docker builds our application with the root user which has 
-    all the privileges but it makes it risky.
-    So, to run any application on docker we should create a regular user
-    with limited privileges.
+1. By default docker builds our application with the root user which has all the privileges but it makes it risky. \
+    So, to run any application on docker we should create a regular user with limited privileges.
       
-2. We we type 'useradd' in the command line, we get to see all the options
-    available. These are flags:
-    -S 
-    - creates a 'system' user
-    -G
-    - creates/sets up the primary group of the user
-
+2. We type 'useradd' in the command line, we get to see all the options available. \
+    These are flags:
+```bash
+-S 
+- creates a 'system' user
+-G
+- creates/sets up the primary group of the user
+```
 3. Type the following command and understand it:
+```bash
     addgroup app
     - creates a group
     adduser -S -G app app
     - format: add user -S -G <group_name> <users_name>
     - adds a new user as a system user and put it in a group named 'app'
-
+```
 4. To check in which group the user is:
+```bash
     groups app
     - checks the group of the user
-
+```
 5. Single command to perform the above:
+```bash
     adduser mosh && adduser -S -G mosh mosh
     - 
-
+```
 6. In our Dockerfile we will use the above command as follows:
+```bash
     RUN adduser mosh && adduser -S -G mosh mosh
+```
 
-
-7. USER command is used to set the user inside the container. Henceforth,
-    all the commands will be executed using the user mentioned:
+7. USER command is used to set the user inside the container. Henceforth, all the commands will be executed using the user mentioned:
+```bash
     USER app
     - switches the user to app
+```
 
+#### lesson39 - Defining Entrypoints
 
-lesson39 - Defining Entrypoints
+Ensure that the user that you have created is pushed to the top so that we don't get any permission errors. 
 
-Ensure that the user that you have created is pushed to the top so that
-    we don't get any permission errors.
+`RUN`, `CMD` and `ENTRYPOINT`
 
-RUN, CMD and ENTRYPOINT
-
-1. We use the following command to start the starting point to start
-    using our container:
+1. We use the following command to start the starting point to start using our container: \
+```bash
     docker run react-app npm start
     - runs the container and starts npm start
     - now we do not have to write 'npm start' to start the container so,
         we include this in the Dockerfile.
-
+```
 
 1. CMD is used to use the default command to be executed:
+```bash
     CMD npm start
+```
+2. Because the command instruction is for supplying the default command, it doesn't make sense to type multiple CMD commmand. If you have multiple of them in a Dockerfile, only the last of it will take take effect.
 
-2. Because the command instruction is for supplying the default
-    command, it doesn't make sense to type multiple CMD commmand. If you
-    have multiple of them in a Dockerfile, only the last of it will take
-    take effect.
-
-3. RUN vs CMD
-    With both of these commands we can run commands but here is the 
-    difference:
-    RUN instruction is a build time instruction.
+3. `RUN` vs `CMD` \
+    With both of these commands we can run commands but here is the difference: \
+    `RUN` instruction is a `build-time instruction`.
 
     Google Gemini:
-    RUN: This is for building the image. RUN instructions execute commands 
-        during the build process, adding layers to the final image. 
-        Imagine it as adding ingredients to a recipe (image).
-    CMD: This sets the default command for the container. The CMD 
-        instruction specifies what the container will run when you start 
-        it. Think of it as the starting instruction for your cooked dish 
-        (container).
+    `RUN`: This is for building the image. RUN instructions execute commands during the build process, adding layers to the final image. \
+        Imagine it as adding ingredients to a recipe (image). \
+    `CMD`: This sets the default command for the container. The CMD instruction specifies what the container will run when you start it. \
+        Think of it as the starting instruction for your cooked dish (container).
 
-4. CMD instruction has two forms:
-    a. Shell form
+4. CMD instruction has two forms: \
+    a. Shell form \
     b. Exec form (Execute form)
 
-    Shell form: 
-        When we use this syntax, docker will execute the command in 
-        separate shell. That is why it is so called.
-        In linux it is '/bin/sh'
-        In Windows it is 'cmd' or the command prompt
-    Exec form:
-        This takes an array of strings. E.g., 
-        CMD ["npm", "start"]
+    `Shell form`: \
+        When we use this syntax, docker will execute the command in separate shell. That is why it is so called. \
+        In linux, it is '/bin/sh'
+        In Windows, it is 'cmd' or the command prompt
+    `Exec form`: \
+        This takes an array of strings. 
 
+        E.g., 
+        ```bash
+        CMD ["npm", "start"]
+        ```
     The common best practice is to use the Exec form. Because here we 
     can execute the command directly and don't have to spin up another 
     shell process. Also, it makes it easier and faster to clean up 
