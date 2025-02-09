@@ -122,7 +122,7 @@ a. Instead of using "docker pull ubuntu" the shortcut can be: \
         ```
 
 
-### Henceforth, lesson-wise
+Henceforth, lesson-wise
 
 #### lesson12- Linux Distributions
 1. Linux is an opensource OS
