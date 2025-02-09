@@ -995,7 +995,9 @@ A Dockerfile is a list of instructions
     ```bash
     COPY package.json README.md /app
     - copies two files in the 'app' directory
-    - However, the above instruction has a syntax error. The error is that when using COPY for more than 1 source file, the destination must be a directory and must end in '/' (forward slash).
+    - However, the above instruction has a syntax error. The error is that when using COPY for 
+    more than 1 source file, the destination must be a directory and 
+    must end in '/' (forward slash).
     ```
     
     So, the correct syntax is:
@@ -1007,33 +1009,34 @@ A Dockerfile is a list of instructions
     ```
 
 5. To copy everything in this directory:
+    ```bash
     COPY . /app/
     - to copy everything, we use a '.' (period)
-
-6. WORKDIR
-    Used to set the working directory. Whatever instruction we type after
-    this, will be executed in the directory mentioned in WORKDIR.
-
+    ```
+6. `WORKDIR` \
+    Used to set the working directory. Whatever instruction we type after this, will be executed in the directory mentioned in **WORKDIR**.
+    ```bash
     WORKDIR /app
     COPY . .
     - copies everything from the current directory to the current working
         directory of the image - '/app'
-
-7. ADD
-    ADD has two additional features:
+    ```
+7. `ADD` \
+    ADD has two additional features: \
     a. You can add a URL. E.g.,
+        ```bash
         ADD https://abc.com/file.json .
         - adds some file from the internet to the WORKDIR
+        ```
     b. It uncompresses while adding it to the WORKDIR. E.g.,
+        ```bash
         ADD file.zip .
         - adds a directory upzipped into the WORKDIR
+        ```
+    Best practice is to use COPY* 
 
-    Best practice is to use COPY*
-
-    Build Context - The Directory from where content is being taken. Also
-        known as the Context Directory. 
-        So docker client takes everything from here and sends it to 
-        docker engine or docker daemon.
+    Build Context - The Directory from where content is being taken. Also known as the Context Directory. \
+        So docker client takes everything from here and sends it to docker engine or docker daemon.
 
     
 
