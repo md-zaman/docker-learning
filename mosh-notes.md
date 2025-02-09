@@ -1123,11 +1123,11 @@ echo $API_URL
 1. `EXPOSE` is the instruction to tell on which port this container will listening on. \
     The EXPOSE command doesn't automatically publish the port on the host, it is just a form of documentation that tells us this container will eventually listen on the port mentioned. E.g.,
 
-```bash
-EXPOSE 3000
-- conveys that this container will be listening of this port- 3000
-```
-Later on when we run an application on a container, we have to map this port with our host to the container.
+    ```bash
+    EXPOSE 3000
+    - conveys that this container will be listening of this port- 3000
+    ```
+    Later on when we run an application on a container, we have to map this port with our host to the container.
 
 #### lesson38 - Setting the User
 
@@ -1140,40 +1140,40 @@ Here we will create a new 'system' user and put it in a group to work in the con
       
 2. We type 'useradd' in the command line, we get to see all the options available. \
     These are flags:
-```bash
--S 
-- creates a 'system' user
--G
-- creates/sets up the primary group of the user
-```
+    ```bash
+    -S 
+    - creates a 'system' user
+    -G
+    - creates/sets up the primary group of the user
+    ```
 3. Type the following command and understand it:
-```bash
-    addgroup app
-    - creates a group
-    adduser -S -G app app
-    - format: add user -S -G <group_name> <users_name>
-    - adds a new user as a system user and put it in a group named 'app'
-```
+    ```bash
+        addgroup app
+        - creates a group
+        adduser -S -G app app
+        - format: add user -S -G <group_name> <users_name>
+        - adds a new user as a system user and put it in a group named 'app'
+    ```
 4. To check in which group the user is:
-```bash
-    groups app
-    - checks the group of the user
-```
+    ```bash
+        groups app
+        - checks the group of the user
+    ```
 5. Single command to perform the above:
-```bash
-    adduser mosh && adduser -S -G mosh mosh
-    - 
-```
+    ```bash
+        adduser mosh && adduser -S -G mosh mosh
+        - 
+    ```
 6. In our Dockerfile we will use the above command as follows:
-```bash
-    RUN adduser mosh && adduser -S -G mosh mosh
-```
+    ```bash
+        RUN adduser mosh && adduser -S -G mosh mosh
+    ```
 
 7. USER command is used to set the user inside the container. Henceforth, all the commands will be executed using the user mentioned:
-```bash
-    USER app
-    - switches the user to app
-```
+    ```bash
+        USER app
+        - switches the user to app
+    ```
 
 #### lesson39 - Defining Entrypoints
 
@@ -1182,20 +1182,20 @@ Ensure that the user that you have created is pushed to the top so that we don't
 `RUN`, `CMD` and `ENTRYPOINT`
 
 1. We use the following command to start the starting point to start using our container: \
-```bash
+    ```bash
     docker run react-app npm start
     - runs the container and starts npm start
     - now we do not have to write 'npm start' to start the container so,
         we include this in the Dockerfile.
-```
+    ```
 
-1. CMD is used to use the default command to be executed:
+2. CMD is used to use the default command to be executed:
 ```bash
     CMD npm start
 ```
-2. Because the command instruction is for supplying the default command, it doesn't make sense to type multiple CMD commmand. If you have multiple of them in a Dockerfile, only the last of it will take take effect.
+3. Because the command instruction is for supplying the default command, it doesn't make sense to type multiple CMD commmand. If you have multiple of them in a Dockerfile, only the last of it will take take effect.
 
-3. `RUN` vs `CMD` \
+4. `RUN` vs `CMD` \
     With both of these commands we can run commands but here is the difference: \
     `RUN` instruction is a `build-time instruction`.
 
@@ -1205,7 +1205,7 @@ Ensure that the user that you have created is pushed to the top so that we don't
     `CMD`: This sets the default command for the container. The CMD instruction specifies what the container will run when you start it. \
         Think of it as the starting instruction for your cooked dish (container).
 
-4. CMD instruction has two forms: \
+5. CMD instruction has two forms: \
     a. Shell form \
     b. Exec form (Execute form)
 
@@ -1222,7 +1222,7 @@ Ensure that the user that you have created is pushed to the top so that we don't
     ```
     The common best practice is to use the Exec form. Because here we can execute the command directly and don't have to spin up another shell process. Also, it makes it easier and faster to clean up resources when you stop a container.
 
-5. `ENTRYPOINT`
+6. `ENTRYPOINT`
     This is similar to CMD and this also has 2 forms: \
     a. Shell form \
     b. Exec form
@@ -1231,7 +1231,7 @@ Ensure that the user that you have created is pushed to the top so that we don't
     A lot of people forget to override so it is slightly harder to override but you can `easily over-ride CMD`
 
 
-### lesson40: Speeding Up Builds
+#### lesson40: Speeding Up Builds
 
 1. `Layers`: An image in docker is collection of layers. Each layer is like a small filesystem that only includes modified files. \
     Each command is layer and that layer only modifies the image based on this instruction.
@@ -1246,7 +1246,8 @@ Ensure that the user that you have created is pushed to the top so that we don't
     COPY . .
     - instead of copying the entire files in one go. We can separte what is require in the subsequent command so that this particular layer can be reused and we can save time while creating the image.
 
-3. `Takeaway`: While writing a Dockerfile. We should keep the instruction that do not change frequently on the top so that the layer can be reused from the cache.
+3. `Takeaway`: \
+    While writing a Dockerfile. We should keep the instruction that do not change frequently on the top so that the layer can be reused from the cache.
 
 #### lesson41 - Removing Images
 
@@ -1257,122 +1258,133 @@ Ensure that the user that you have created is pushed to the top so that we don't
     - removes the dangling images
     ```
 2. To remove all stopped container:
-```bash
-docker container prune
-- removes all the stopped containers
-```
+    ```bash
+    docker container prune
+    - removes all the stopped containers
+    ```
 3. Use the following command to get all the options related to containers:
-```bash
-docker images
-- lists all the option we can use with 'docker images'
-```
+    ```bash
+    docker images
+    - lists all the option we can use with 'docker images'
+    ```
 4. docker rm <image_name>
+    ```bash
     docker rm <image_id>
     - removes the image
+    ```
 
-lesson42 - Tagging Images
+#### lesson42 - Tagging Images
 
 1. If we don't tag our images it will be tagged as 'latest' by default.
     An image can have multiple tags.
 
-2. There are 2 ways to tag an image:
-    a. While building the image
+2. There are 2 ways to tag an image: \
+    a. While building the image \
     b. Tag the image after it is build
 
-    While Building an image:
-        Use the version number at the end after a colon ':'. E.g.,
+    While Building an image: \
+        Use the version number at the end after a colon ':'. \
+        E.g.,
+        ```bash
         docker build -t react-app:1
         - build the image with the tag as '1'
+        ```
 
-    Tag the image after it is build:
-        Here, we use the 'tag' command. This is like renaming the old
-        name with the new one. E.g.,
+    Tag the image after it is build: \
+        Here, we use the 'tag' command. This is like renaming the old name with the new one. \
+        E.g., \
+        ```bash
         docker image tag <old_image_name:version> <new_image_name:version>
         docker image tag react-app:latest react-app:1
+        ```
 
 3. Instead of image name we can also use image ID
 
-4. The 'latest' tag doesn't necessarily mean the latest image. We should
-    fix it.
+4. The 'latest' tag doesn't necessarily mean the latest image. We should fix it.
 
 
-lesson43 - Sharing Images
+#### lesson43 - Sharing Images
 
-hub.docker.com - it is a repo
+hub.docker.com - it is a repo 
 
 Create a Repository
 
-1. docker login
+1. Login in Docker:
+    ```bash
+    docker login
     - asks username and password to login
+    ```
 
 2. docker image tag <image_id> <image_name:tag>
     - tags the image. Since we can have multiple tags of an image we
         are tagging it in this format 'zamanmd/react-app:1'
 
-2. docker push
+3. docker push
     docker push zamanmd/react-app:1
     - pushes the image to docker hub
     - docker pushes each layer at a time. So the first time it pushes it 
         takes some time then later it becomes quick assuming we have not 
         changed our application dependencies.
 
-3. After pushing it on docker we can pull it in machine using docker.
+4. After pushing it on docker we can pull it in machine using docker.
 
 
-lesson44 - Saving and Loading Images
+#### lesson44 - Saving and Loading Images
 
-1. Saving an image into a file:
-    If you have an image on your machine and want to share it to another 
-    machine without going through dockerhub, you can simply save and 
-    compress the image in '.tar' file (.tar is a zip file for linux) then 
-    copy it to your desired machine and then load it. (unzip it
-    basically). Here is the command:
+1. Saving an image into a file: \
+    If you have an image on your machine and want to share it to another machine without going through dockerhub, you can simply save and compress the image in '.tar' file (.tar is a zip file for linux) then copy it to your desired machine and then load it. (unzip it basically). Here is the command: \
+    ```bash
     docker image save -o react-app.tar react-app:3
     - saves and compresses the image 'react-app:3' to 'react-app.tar'
     - '-o' option means to output the file in 'react-app.tar'
-
-2. Loading (uncompressing the image) an image from a file:
-    Once we have the '.tar' file, we can load or unzip the image and 
-    get it on the machine. The command for this is:
+    ```
+2. Loading (uncompressing the image) an image from a file: \
+    Once we have the '.tar' file, we can load or unzip the image and get it on the machine. The command for this is:
+    ```bash
     docker image load -i react-app.tar
     - loads an image from the '.tar' file
     - option '-i' mean the input file which here is 'react-app.tar'
+    ```
 
 
-lesson45 - Working with Containers
+#### lesson45 - Working with Containers
 
 
 Intro about the Section that we are going to learn about containers here.
 
-lesson46 - Starting Containers
+#### lesson46 - Starting Containers
 
-1. Using containers in detached mode:
+1. Using containers in detached mode: \
     If you start a container, it will start running but you cannot do 
-    anything in it. If you press 'ctrl+c' the container stops. So, to
-    ensure that if runs in the background and you can use the terminal, 
-    we can run the container in detached mode:
+    anything in it. If you press 'ctrl+c' the container stops. So, to ensure that if runs in the background and you can use the terminal, we can run the container in detached mode:
+    ```bash
     docker run -d react-app
     - runs 'react-app' container in detached mode (in the background)
     - meanwhile, we can use the terminal
+    ```
 
-2. Naming a container:
-    Docker give each container a random name. We can use the name as a 
-    reference. We can also give that name using the following command:
+2. Naming a container: \
+    Docker give each container a random name. We can use the name as a reference. We can also give that name using the following command: \
+    ```bash
     docker run -d --name blue-sky react-app
-    - runs the 'react-app' container in detached mode and names it 
-        'blue-sky'
+    - runs the 'react-app' container in detached mode and names it 'blue-sky'
+    ```
 
-lesson47 - Viewing the Logs
 
-1. To view all the logs inside a container:
+#### lesson47 - Viewing the Logs
+
+1. To view all the logs inside a container: 
+    ```bash
     docker logs 655
     - displays the logs of the container having the ID '655' 
-
-2. Viewing the flags associated with docker commands:
-    Whenever you want to play around with a docker command, always use 
-    '--help' after the command. E.g.,
+    ```
+2. Viewing the flags associated with docker commands: \
+    Whenever you want to play around with a docker command, always use `'--help'` after the command. \
+    E.g.,
+    ```bash
     docker logs --help
     - displays all the options related with the command 'docker logs'
+    ```
 
 3. Few important options/flags:
     - f : follows the logs in realtime
@@ -1380,92 +1392,97 @@ lesson47 - Viewing the Logs
     - t : Show timestamps
 
 
-lesson48 - Publishing Ports
+#### lesson48 - Publishing Ports
 
-1. We cannot access a container on our localhost in the above example 
-    although we have exposed it to the port '3000' in its Dockerfile 
-    because 'PORT 3000' in the Dockerfile means it is exposed to the 
-    container's '3000' port not our machine's localhost.
+1. We cannot access a container on our localhost in the above example although we have exposed it to the port '3000' in its Dockerfile because 'PORT 3000' in the Dockerfile means it is exposed to the container's '3000' port not our machine's localhost.
 
 2. To map a port we use the following command:
+    ```bash
     docker run -d -p 80:3000 --name c1 react-app
     - runs a container. 
     - the flag '-p 80:3000' means port mapping the 1st port is the host 
         port and 2nd port is container's port. So,
         '80' is host port
         '3000' is container's port
+    ```
+#### lesson49 - Executing Commands in Running Containers
 
-lesson49 - Executing Commands in Running Containers
-
-1. We can execute commands in a running container using the following
-    by:
+1. We can execute commands in a running container using the following by:
+    ```bash
     docker exec c1 ls
     - displays the content of our '/app' directory. It is viewing the 
         '/app' directory because in the Dockerfile of c1. We had 
         mentioned '/app' as the WORKDIR.
     - using the exec command, we can also open up a shell session:
-    docker exec -it c1 sh
-    - opens a container in interactive mode and in shell session.
+        docker exec -it c1 sh
+        - opens a container in interactive mode and in shell session.
+    ```
 
 
-2. Difference between 'run' and 'exec':
-    run is used to start a NEW container. 
-    exec is used to access the existing container
+2. Difference between '`run`' and '`exec`': \
+    run is used to `start` a NEW container. 
+    exec is used to `access` the existing container
 
 
-lesson50 - Stopping and Starting Containers
+#### lesson50 - Stopping and Starting Containers
 
 1. To stop a running container:
+    ```bash
     docker stop c1
     - stops a running container
-
-2. docker start c1
+    ```
+2. To start a container:
+    ```bash
+    docker start c1
     - start a new container
-
+    ```
 3. Difference between 'start' and 'run' is 
-    'start' is used in stopped containers while 'run' is used in new 
-        containers.
+    'start' is used in `stopped containers` while 'run' is used in n`ew containers`.
 
 
-lesson51 - Removing Containers
+#### lesson51 - Removing Containers
 
-1. There are two command to remove a container:
+1. There are two command to remove a container: \
+    ```bash
     a. docker container rm c1
     b. docker rm c1 (We will be using this one henceforth)
+    ```
 
 2. Remove a container:
+    ```bash
     docker rm c1
-    
-3. A container cannot be removed if it is running. So, if you want to 
-    remove it either stop it first and then remove it or you can force 
-    remove it by:
+    ```
+3. A container cannot be removed if it is running. So, if you want to remove it either stop it first and then remove it or you can force remove it by:
+    ```bash
     docker rm -f c1
     - removes a container by force
+    ```
 
 4. To remove all the stopped containers in one go:
+    ```bash
     docker container prune
+    ```
 
+#### lesson52 - Containers File System
 
-lesson52 - Containers File System
+1. Each container has its own file system invisible to other containers. Once a containers is deleted, its file system will be deleted, so we never store anything in our containers. We should use volumes for that.
 
-1. Each container has its own file system invisible to other containers.
-    Once a containers is deleted its file system will be deleted, so we 
-    never store anything in our containers. We should use volumes for 
-    that.
+#### lesson53 - Persisting Data using Volumes
 
-lesson53 - Persisting Data using Volumes
-
-1. A volume is a storage outside of containers. It can be directory in 
-    host or somewhere in the cloud.
-
+1. A volume is a storage outside of containers. It can be directory in host or somewhere in the cloud.
+    ```bash
     docker volume
     - lists other sub-commands
+    ```
 
 2. Create a volume:
+    ```bash
     docker volume create app-data
     - creates a volume
+    ```
 
 3. To inspect the volume:
+    ```bash
     docker volume inspect app-data
     - shows details about the volume
     - looks something like:
@@ -1480,14 +1497,14 @@ lesson53 - Persisting Data using Volumes
         "Scope": "local"
         }
     ]
+    ```
 
 4. An example of how to map and few explainations:
+    ```bash
     docker run -d -p 4000:3000 -v app-data:/app/data react-app
     - maps a volume in host directory
-    - in case we don't create 'app-data' directory, docker will create a
-        volume
-    - in case we don't have a directory '/app/data' already created,
-        docker will create the same
+    - in case we don't create 'app-data' directory, docker will create a volume
+    - in case we don't have a directory '/app/data' already created, docker will create the same
     - in this example, we may get the error of permission when we go 
         inside the container and try to create a file. This is because
         when we run this container we let the 'data' directory created 
@@ -1497,47 +1514,53 @@ lesson53 - Persisting Data using Volumes
         and we can make these changes in the Dockerfile.
 
         This is 'named' volume.
+    ```
 
 5. Even if a container is deleted the data persists because of the volume
 
 6. We can map this volume with other containers as well
 
 
-lesson54 - Copying Files between the Host and Containers
+#### lesson54 - Copying Files between the Host and Containers
 
 1. We can copy files from the container to our host
 
 2. we can use the 'cp' command to copy to and from a container
 
 3. Copy from a container to our host:
+    ```bash
     docker cp <container_id>:<container_path> <host_path>
     docker cp e1c90:/app/log.txt .
     - copies a file from a container to host
+    ```
 
 4. Copy from from the host to the container:
+    ```bash
     docker cp <host_path/file_name> <container_id:container_path>
     docker cp secret.txt e1c90:/app
+    ```
     
 
-lesson55 - Sharing the Source Code with a Container
+#### lesson55 - Sharing the Source Code with a Container
 
 1. We can publish the application changes using volumes and in this way 
     we don't have to copy or build our images every now and then.
     This way whenever we make any changes in our source code, it will be 
     reflected in our dockerized application.
-    We can do so by mapping/ binding  between our directory on the host 
+    We can do so by mapping/binding  between our directory on the host 
     with the directory inside our container.
+    ```bash
     docker run -d -p 5001:3000 -v $(pwd):/app
     - mapped our project directory with the directory in the container
+    ```
 
+#### lesson56 - Running Multi-Container Application
 
-lesson56 - Running Multi-Container Application
-
-Front-end
-Back-end
+Front-end \
+Back-end \
 Database
 
-lesson57 - Installing Docker Compose
+#### lesson57 - Installing Docker Compose
 
 1. Docker compose is a tool which is built on top of Docker Engine. 
     Using this we can start an application with multiple containers.
@@ -1545,21 +1568,21 @@ lesson57 - Installing Docker Compose
     Use the instruction to install from the official website.
     docker-compose --version
 
-lesson58 - Cleaning Up our Workspace
+#### lesson58 - Cleaning Up our Workspace
 
 1. docker container -f rm $(docker container ls -aq)
 
 2. docker image -f rm $(docker image ls -aq)
 
-3. You can use the Docker UI as well. Here you can use the 
-    'Clean/ Purge data'
+3. You can use the Docker UI as well. Here you can use the \
+    'Clean/Purge data' \
     This will restart the docker engine
 
-lesson59 - The Sample Web Application
+#### lesson59 - The Sample Web Application
 
-An application with frontend and backend and it has a docker-compose.yml
+An application with frontend and backend and it has a docker-compose.yml 
 
-lesson60 - JSON and YAML Formats
+#### lesson60 - JSON and YAML Formats
 
 1. Discussed about JSON and YAML.
 2. Key Value Pairs
@@ -1567,7 +1590,7 @@ lesson60 - JSON and YAML Formats
 4. For objects we use indentations for properties
  
 
-lesson61 - Creating a Compose File
+#### lesson61 - Creating a Compose File
 
 1. The name has to be 'docker-compose.yml'. The is the default name.
 
@@ -1585,7 +1608,8 @@ lesson61 - Creating a Compose File
         db:
     inside we have properties
 
-4.  version: "3.8"
+4.  ```bash
+    version: "3.8"
     services:                [Each service will have its own Dockerfile]
         web:
           build: ./frontend  [location of Dockerfile]
@@ -1605,17 +1629,22 @@ lesson61 - Creating a Compose File
             - vidly:/data/db  [mongo db stores its data in '/data/db']
     volumes:
       vidly:            [We have to define volume before we can use it]
+    ```
 
 
-lesson62 - Building Images
+#### lesson62 - Building Images
  
-1. Use the following command to explore options in docker compose:
+1. Use the following command to explore options in docker compose: \
+    ```bash
     docker-compose
     - lists all options
+    ```
 
 
-2. docker-compose --help
+2. ```bash
+    docker-compose --help
     - more options
+    ```
 
 3. docker-compose build
     - builds an image from 'docker-compose.yml'
