@@ -152,16 +152,16 @@ or instead of using `pull`, we can use:
     ***so if we do not interact with a container, it will stop***
 
     To check, we can write:
-        ```bash
+    ```bash
     docker ps 
         - (to check the running processes, since a container is a process)
-        ```
+    ```
     We will find nothing
     But when we write:
-        ```bash 
-        docker ps -a
-            - checks all the process, even if any container has stopped
-        ```
+    ```bash 
+    docker ps -a
+        - checks all the process, even if any container has stopped
+    ```
 3. To start a container and interact with it:
     ```bash
     docker run -it <container_name>
