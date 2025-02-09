@@ -950,32 +950,34 @@ A Dockerfile is a list of instructions
     ```
 
     c. Run the container:
-        docker run -it <image_name>
-        docker run -it react-app
+    ```bash
+    docker run -it <image_name>
+    docker run -it react-app
         - '-it' tag is used to start the container in interactive mode.
-            Like mentioned earlier, if we don't interact with the 
-            container, it will be stopped.
+        - Like mentioned earlier, if we don't interact with the container, it will be stopped.
+    ```
         
-        To run it on bash (and not the default terminal) type:
-
-        docker run -it react-app bash
-        - if bash is not available, use shell (bash is sometimes not 
-            available when the image is very small)
-        
-        docker run -it react-app sh
-        - runs shell
-
+    To run it on bash (and not the default terminal) type:
+```bash
+docker run -it react-app bash
+    - if bash is not available, use shell (bash is sometimes not available when the image is very small)
+```
+```bash
+docker run -it react-app sh
+    - runs shell
+```
         
 
 
 5. To check all the images we can type:
+```bash
     docker images 
     or 
     docker image ls
     - lists all the docker images
+```
 
-
-lesson33 - Copying Files and Directories
+#### lesson33 - Copying Files and Directories
 
 1. COPY and ADD
     These are used to copy the application files into the image. For this, 
