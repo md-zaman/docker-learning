@@ -922,12 +922,14 @@ A Dockerfile is a list of instructions
     So an image can be in any registry. The default registry docker uses is dockerhub. \
     If the image is in some other registry, we have to type the full URL
 
-3. `latest` tag: \
-    FROM node:latest \
-    Avoid using the latest tag in FROM because the registry might get updated and your app might not be compatible with the new version. \
+3. `latest` tag:
+    ```bash
+    FROM node:latest
+    ```
+    Avoid using the latest tag in `FROM` because the registry might get updated and your app might not be compatible with the new version. \
     So, always use a `specific version`.
 
-4. To run a container we need to do the following: \
+4. To run a container, we need to do the following: \
     a. Make a Dockerfile \
     b. Build a docker image with the docker build command and \
     c. Run the container
