@@ -914,15 +914,15 @@ A Dockerfile is a list of instructions
     Each line specifies a step, like installing software, copying files, or configuring settings. \
     It essentially automates the image building process for consistency and reusability.
 
-1. Base Image: FROM \
+1. `Base Image`: **FROM** \
     FROM is used to specify the base image. \
     The base image can be an OS like Linux or Windows or it can be an OS plus a runtime environment.
 
-2. Full URLs in FROM: \
+2. `Full URLs` in **FROM**: \
     So an image can be in any registry. The default registry docker uses is dockerhub. \
     If the image is in some other registry, we have to type the full URL
 
-3. latest tag: \
+3. `latest` tag: \
     FROM node:latest \
     Avoid using the latest tag in FROM because the registry might get updated and your app might not be compatible with the new version. \
     So, always use a `specific version`.
@@ -932,9 +932,9 @@ A Dockerfile is a list of instructions
     b. Build a docker image with the docker build command and \
     c. Run the container
 
-    a. Dockerfile: \
+    a. Dockerfile: 
     ```bash
-    FROM node:14.16.0-alpine3.13 \
+    FROM node:14.16.0-alpine3.13 
     (*just an example)
     ```
 
