@@ -139,8 +139,8 @@ Henceforth, lesson-wise
 
 1. To use Linuxs' particular OS say ubuntu we can type:
     ```bash
-        docker pull ubuntu
-        - pulls the ubuntu image
+    docker pull ubuntu
+    - pulls the ubuntu image
     ```
 
 or instead of using `pull`, we can use:
@@ -153,8 +153,8 @@ or instead of using `pull`, we can use:
 
     To check, we can write:
         ```bash
-        docker ps 
-            - (to check the running processes, since a container is a process)
+    docker ps 
+        - (to check the running processes, since a container is a process)
         ```
     We will find nothing
     But when we write:
