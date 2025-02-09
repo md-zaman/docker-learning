@@ -958,14 +958,14 @@ A Dockerfile is a list of instructions
     ```
         
     To run it on bash (and not the default terminal) type:
-```bash
-docker run -it react-app bash
-    - if bash is not available, use shell (bash is sometimes not available when the image is very small)
-```
-```bash
-docker run -it react-app sh
-    - runs shell
-```
+    ```bash
+    docker run -it react-app bash
+        - if bash is not available, use shell (bash is sometimes not available when the image is very small)
+    ```
+    ```bash
+    docker run -it react-app sh
+        - runs shell
+    ```
         
 
 
