@@ -1029,10 +1029,10 @@ A Dockerfile is a list of instructions
     - adds some file from the internet to the WORKDIR
     ```
     b. It uncompresses while adding it to the WORKDIR. E.g.,
-        ```bash
-        ADD file.zip .
-        - adds a directory upzipped into the WORKDIR
-        ```
+    ```bash
+    ADD file.zip .
+    - adds a directory upzipped into the WORKDIR
+    ```
     Best practice is to use COPY* 
 
     Build Context - The Directory from where content is being taken. Also known as the Context Directory. \
@@ -1040,7 +1040,7 @@ A Dockerfile is a list of instructions
 
     
 
-lesson34 - Excluding Files and Directories
+#### lesson34 - Excluding Files and Directories
 
 
 Build Context - The Directory from where content is being taken. Also
