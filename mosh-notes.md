@@ -1043,16 +1043,10 @@ A Dockerfile is a list of instructions
 #### lesson34 - Excluding Files and Directories
 
 
-Build Context - The Directory from where content is being taken. Also
-        known as the Context Directory. 
-        So docker client takes everything from here and sends it to 
-        docker engine or docker daemon.
-    Again:
-        Docker client takes everything from 'build context' or 
-        'context directory' and sends it to docker engine or docker 
-        daemon.
+`Build Context` - The Directory from where content is being taken. Also known as the Context Directory. \
+        So docker client takes everything from here and sends it to docker engine or docker daemon.
 
-1. There will be few files/ directories which we will not want the docker 
+1. There will be few files/directories which we will not want the docker 
     client to copy from the 'context directory' to the image.
     In order to instruct docker engine to ignore files or directory, we
     have to create a file by the name:
