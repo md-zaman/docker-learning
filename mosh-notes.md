@@ -1248,23 +1248,24 @@ Ensure that the user that you have created is pushed to the top so that we don't
 
 3. `Takeaway`: While writing a Dockerfile. We should keep the instruction that do not change frequently on the top so that the layer can be reused from the cache.
 
-### lesson41 - Removing Images
+#### lesson41 - Removing Images
 
 1. `Dangling Images` with no name and no tag are known as Dangling Images. \
     To remove these images, we use the ***prune*** command:
 ```bash
-    docker image prune
-    - removes the dangling images
+docker image prune
+- removes the dangling images
 ```
 2. To remove all stopped container:
 ```bash
-    docker container prune
-    - removes all the stopped containers
+docker container prune
+- removes all the stopped containers
 ```
 3. Use the following command to get all the options related to containers:
-    docker images
-    - lists all the option we can use with 'docker images'
-
+```bash
+docker images
+- lists all the option we can use with 'docker images'
+```
 4. docker rm <image_name>
     docker rm <image_id>
     - removes the image
