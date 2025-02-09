@@ -1610,9 +1610,9 @@ An application with frontend and backend and it has a docker-compose.yml
 
 4.  ```bash
     version: "3.8"
-    services:                [Each service will have its own Dockerfile]
+    services: ----> [Each `service` will have its own Dockerfile]
         web:
-          build: ./frontend  [location of Dockerfile]
+          build: ./frontend ----> [location of Dockerfile]
           ports:
             - 3000:3000
         api:
@@ -1626,9 +1626,9 @@ An application with frontend and backend and it has a docker-compose.yml
           ports:
             - 27017:27017
           volumes:
-            - vidly:/data/db  [mongo db stores its data in '/data/db']
+            - vidly:/data/db ----> [mongo db stores its data in '/data/db']
     volumes:
-      vidly:            [We have to define volume before we can use it]
+      vidly: ----> [We have to define volume before we can use it]
     ```
 
 
