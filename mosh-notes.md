@@ -1024,10 +1024,10 @@ A Dockerfile is a list of instructions
 7. `ADD` \
     ADD has two additional features: \
     a. You can add a URL. E.g.,
-        ```bash
-        ADD https://abc.com/file.json .
-        - adds some file from the internet to the WORKDIR
-        ```
+    ```bash
+    ADD https://abc.com/file.json .
+    - adds some file from the internet to the WORKDIR
+    ```
     b. It uncompresses while adding it to the WORKDIR. E.g.,
         ```bash
         ADD file.zip .
