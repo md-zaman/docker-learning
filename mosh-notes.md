@@ -146,7 +146,7 @@ Henceforth, lesson-wise
     or instead of using `pull`, we can use:
     ```bash
     docker run ubuntu
-        - runs the ubuntu container but if it's not available, it will download it and then run
+    - runs the ubuntu container but if it's not available, it will download it and then run
     ```
 
 2. Although we have downloaded the container and run it, since we didn't interact with it, so it stopped. \
