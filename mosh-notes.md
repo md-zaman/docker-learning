@@ -1252,10 +1252,10 @@ Ensure that the user that you have created is pushed to the top so that we don't
 
 1. `Dangling Images` with no name and no tag are known as Dangling Images. \
     To remove these images, we use the ***prune*** command:
-```bash
-docker image prune
-- removes the dangling images
-```
+    ```bash
+    docker image prune
+    - removes the dangling images
+    ```
 2. To remove all stopped container:
 ```bash
 docker container prune
