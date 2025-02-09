@@ -1035,7 +1035,7 @@ A Dockerfile is a list of instructions
     ```
     Best practice is to use COPY* 
 
-    Build Context - The Directory from where content is being taken. Also known as the Context Directory. \
+    Build Context - The Directory from where content is being taken. Also known as the ***Context Directory***. \
         So docker client takes everything from here and sends it to docker engine or docker daemon.
 
     
