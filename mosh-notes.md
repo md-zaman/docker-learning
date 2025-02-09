@@ -162,7 +162,9 @@ docker ps -a
     - checks all the process, even if any container has stopped
 ```
 3. To start a container and interact with it:
+```bash
 docker run -it <container_name>
+```
 ```bash
 docker run -it ubuntu
     -starts a container in interaction mode.
