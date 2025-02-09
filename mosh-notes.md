@@ -1216,64 +1216,51 @@ Ensure that the user that you have created is pushed to the top so that we don't
     `Exec form`: \
         This takes an array of strings. 
 
-        E.g., 
-        ```bash
-        CMD ["npm", "start"]
-        ```
-    The common best practice is to use the Exec form. Because here we 
-    can execute the command directly and don't have to spin up another 
-    shell process. Also, it makes it easier and faster to clean up 
-    resources when you stop a container.
+    E.g., 
+    ```bash
+    CMD ["npm", "start"]
+    ```
+    The common best practice is to use the Exec form. Because here we can execute the command directly and don't have to spin up another shell process. Also, it makes it easier and faster to clean up resources when you stop a container.
 
-5. ENTRYPOINT
-    This is similar to CMD and this also has 2 forms:
-    a. Shell form
+5. `ENTRYPOINT`
+    This is similar to CMD and this also has 2 forms: \
+    a. Shell form \
     b. Exec form
 
-    The difference is we cannot easily override ENTRYPOINT. To override
-    we have to use a flag: --entrypoint
-    A lot of people forget to override so it is slightly harder to 
-    override but you have easily over ride CMD
+    The difference is we cannot easily `override` ENTRYPOINT. To override we have to use a flag: --entrypoint \
+    A lot of people forget to override so it is slightly harder to override but you can `easily over-ride CMD`
 
 
-lesson40: Speeding Up Builds
+### lesson40: Speeding Up Builds
 
-1. Layers: An image in docker is collection of layers. Each layer is like 
-    a small filesystem that only includes modified files.
-    Each command is layer and that layer only modifies the image based on 
-    this instruction.
+1. `Layers`: An image in docker is collection of layers. Each layer is like a small filesystem that only includes modified files. \
+    Each command is layer and that layer only modifies the image based on this instruction.
     
     We can read the info from bottom to top.
 
-2. Optimisation in docker is that it sees the instruction and build the 
-    layer if there is any modification. If there are no modification in
-    the instruction, it is not going to re-build the layer it is going 
-    to reuse it its cache.
-    If there is any change in the layer then docker has to rebuild the 
-    layer and then entire layers following it.
-    So, to optimise our builds, we have to separte the installation of 
-    third party dependencies of our application files.
+2. Optimisation in docker is that it sees the instruction and build the layer **if there is any modification**. \
+    If there are no modification in the instruction, it is not going to re-build the layer it is going to *reuse it its cache*. \
+    If there is any change in the layer then docker has to rebuild the layer and then entire layers following it. \
+    So, to optimise our builds, we have to separte the installation of third party dependencies of our application files.
 
     COPY . .
-    - instead of copying the entire files in one go. We can separte what
-        is require in the subsequent command so that this particular 
-        layer can be reused and we can save time while creating the image.
+    - instead of copying the entire files in one go. We can separte what is require in the subsequent command so that this particular layer can be reused and we can save time while creating the image.
 
-3. Takeaway: While writing a Dockerfile. We should keep the instruction 
-    that do not change frequently on the top so that the layer can be 
-    reused from the cache.
+3. `Takeaway`: While writing a Dockerfile. We should keep the instruction that do not change frequently on the top so that the layer can be reused from the cache.
 
-lesson41 - Removing Images
+### lesson41 - Removing Images
 
-1. Dangling Images with no name and no tag are known as Dangling Images.
-    To remove these images, we use the prune command:
+1. `Dangling Images` with no name and no tag are known as Dangling Images. \
+    To remove these images, we use the ***prune*** command:
+```bash
     docker image prune
     - removes the dangling images
-
+```
 2. To remove all stopped container:
+```bash
     docker container prune
     - removes all the stopped containers
-
+```
 3. Use the following command to get all the options related to containers:
     docker images
     - lists all the option we can use with 'docker images'
