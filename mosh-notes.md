@@ -148,6 +148,7 @@ or instead of using `pull`, we can use:
     docker run ubuntu
         - runs the ubuntu container but if it's not available, it will download it and then run
     ```
+
 2. Although we have downloaded the container and run it, since we didn't interact with it, so it stopped. \
     ***so if we do not interact with a container, it will stop***
 
