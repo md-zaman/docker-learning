@@ -116,10 +116,10 @@ a. Instead of using "docker pull ubuntu" the shortcut can be: \
 8. If you don't want it to stop, keep it in interactive mode. To put it in interactie mode, use the flag `-it`
 
     E.g., 
-        ```bash
-        docker run -it ubuntu
-            -runs a container in interactive mode.
-        ```
+    ```bash
+    docker run -it ubuntu
+        -runs a container in interactive mode.
+    ```
 
 
 Henceforth, lesson-wise
