@@ -979,32 +979,32 @@ A Dockerfile is a list of instructions
 
 #### lesson33 - Copying Files and Directories
 
-1. COPY and ADD
-    These are used to copy the application files into the image. For this, 
-    we have two instructions, COPY and ADD. They are basically similar
-    but ADD has some features more discussed later.
+1. `COPY` and `ADD` \
+    These are used to copy the application files into the image. For this, we have two instructions, COPY and ADD. They are basically similar but ADD has some features more discussed later.
 
-2. COPY
-    With this we can copy one or more files/ directories into our image.
-    The files and directories we can copy from has to be the CURRENT 
-    directory only (not from elsewhere). 
+2. `COPY` \
+    With this we can copy one or more files/directories into our image.
+    The files and directories we can copy from has to be the **CURRENT** directory only (not from elsewhere). 
 
-3. COPY package.json /app
-    - In this instruction, if the directory 'app' doesn't exists, docker
-        will create it for you.
-
+3. E.g.,
+    ```bash
+    COPY package.json /app \
+    - In this instruction, if the directory 'app' doesn't exists, docker will create it for you.
+    ```
 4. Other version for understanding:
+    ```bash
     COPY package.json README.md /app
     - copies two files in the 'app' directory
-    - However, the above instruction has a syntax error. The error is 
-        that when using COPY for more than 1 source file, the destination
-        must be a directory and must end in '/' (forward slash).
-        So, the correct syntax is:
+    - However, the above instruction has a syntax error. The error is that when using COPY for more than 1 source file, the destination must be a directory and must end in '/' (forward slash).
+    ```
+    
+    So, the correct syntax is:
+    ```bash
     COPY package.json README.md /app/
     - no need
     COPY package*.json README.md /app
     - no need
-
+    ```
 
 5. To copy everything in this directory:
     COPY . /app/
