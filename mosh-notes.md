@@ -143,7 +143,7 @@ Henceforth, lesson-wise
     - pulls the ubuntu image
     ```
 
-or instead of using `pull`, we can use:
+    or instead of using `pull`, we can use:
     ```bash
     docker run ubuntu
         - runs the ubuntu container but if it's not available, it will download it and then run
