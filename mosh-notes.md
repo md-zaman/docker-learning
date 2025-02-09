@@ -90,38 +90,38 @@ A: A kernel manages the application and hardware resources.
 2. Using ubuntu on docker: \
 a. Instead of using "docker pull ubuntu" the shortcut can be: \
     ```bash
-    docker run ubuntu \
-    (If the image exists then it will simply run but if it doesn't exists, 
+    docker run ubuntu 
+    - (If the image exists then it will simply run but if it doesn't exists, 
     it will pull(download from the repo/dockerhub) and run)
     ```
 3. To display all the containers:
-```bash
-docker ps 
-    - checks all the docker process it is running (running container is a 
-    process)
-```
+    ```bash
+    docker ps 
+        - checks all the docker process it is running (running container is a 
+        process)
+    ```
 
 4. To display all the containers even if it's stopped:
-```bash
-docker ps -a
-    - displays all the containers even if it is stopped 
-```
+    ```bash
+    docker ps -a
+        - displays all the containers even if it is stopped 
+    ```
 6. To run a container from an image:
-```bash
-docker run <docker_image_name>
-    -runs a container. 
-```
+    ```bash
+    docker run <docker_image_name>
+        -runs a container. 
+    ```
 7. If you start a container and if it is not in `interactive mode`, it will *stop*.
 
 8. If you don't want it to stop, keep it in interactive mode. To put it in interactie mode, use the flag `-it`
 
 E.g., 
-```bash
-docker run -it ubuntu
-    -runs a container in interactive mode.
-```
+    ```bash
+    docker run -it ubuntu
+        -runs a container in interactive mode.
+    ```
 ---------------------
-Henceforth, lesson-wise
+### Henceforth, lesson-wise
 
 #### lesson12- Linux Distributions
 1. Linux is an opensource OS
