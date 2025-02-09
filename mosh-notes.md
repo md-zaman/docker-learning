@@ -82,17 +82,18 @@ A: A kernel manages the application and hardware resources.
     docker version
     - displays the docker version
     ```
-    
+
 # Linux
 
 11. Linux is an opensource OS
 
 2. Using ubuntu on docker: \
 a. Instead of using "docker pull ubuntu" the shortcut can be: \
+    ```bash
     docker run ubuntu \
     (If the image exists then it will simply run but if it doesn't exists, 
     it will pull(download from the repo/dockerhub) and run)
-
+    ```
 3. To display all the containers:
 ```bash
 docker ps 
