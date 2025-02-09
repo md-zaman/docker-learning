@@ -1082,14 +1082,15 @@ Always on duty, this program listens for instructions from the client and carrie
 It's the tireless worker that builds and manages your containers based on the client's commands.
 
 
-lesson35 - Running Commands
+#### lesson35 - Running Commands
 
 1. RUN Command
     With this command, we can execute any command we normally execute in
     a terminal session. E.g.,
+    ```bash
     RUN npm install
     RUN apt install python
-
+    ```
 
 lesson36 - Setting Environment Variables
 
