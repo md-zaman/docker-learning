@@ -40,7 +40,7 @@ A: A kernel manages the application and hardware resources.
 
 9. Docker Image:
 
-A:  Contains: \
+A: Contains: \
     a. A `cut-down OS` \
     b. A `runtime environment` \
     c. `Application files` \
