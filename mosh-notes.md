@@ -1641,23 +1641,31 @@ An application with frontend and backend and it has a docker-compose.yml
     ```
 
 
-2. ```bash
+2. To get docker compose help:
+    ```bash
     docker-compose --help
     - more options
     ```
 
-3. docker-compose build
+3. To build docker image in docker compose:
+    ```bash
+    docker-compose build
     - builds an image from 'docker-compose.yml'
+    ```
 
-4. docker-compose build --no-cache
+4. To build docker image in docker compose ignoring the cache:
+    ```bash
+    docker-compose build --no-cache
     - doesn't used the cached memory to build images
+    ```
 
-5. docker-compose up
+5. To create a container from a docker-compose file:
+    ```docker-compose up
     - get the appliaction up and running
+    ```
 
 
-
-lesson63 - Starting and Stopping the Application
+#### lesson63 - Starting and Stopping the Application
 
 1. docker-compose up --build
     - we can combine to the two
@@ -1673,12 +1681,12 @@ lesson63 - Starting and Stopping the Application
     - stop and remove the containers
 
 
-lesson64 - Docker Networking
+#### lesson64 - Docker Networking
 
-1. When we start our appliaction using docker-compose, it will 
+1. When we start our application using docker-compose, it will 
     automatically create a network and add our containers on that 
     network so these containers can talk to each other.
-    You can see this network while building the docker-compose up
+    You can see this network while building the `docker-compose up`
 
 2. docker network ls
     - lists all the network in this machine
@@ -1686,14 +1694,18 @@ lesson64 - Docker Networking
 3. To verify that these containers can talk to each other we can exec in 
     any of the containers and we will be able to ping :
 
+    ```bash
     docker exec -it 8c6 sh
     ping api
     - you can get a permission error. So use the following command to 
         login using the root user.
+
     docker exec -it -u root 8c6 sh
     - uses the 'root' user to login
+
     ping api
     - pings api
+    ```
 
 4. Docker comes with embedded DNS server which contains name and IP of 
     these containers. Inside each containers we have a component called 
@@ -1707,26 +1719,35 @@ lesson64 - Docker Networking
     Each container has an IP address and is part of a network.
 
 
-lesson65 - Viewing Logs
+#### lesson65 - Viewing Logs
 
-1. docker-compose logs
+1. Viewing docker-compose logs:
+    ```bash
+    docker-compose logs
     - views the logs across all the containers
+    ```
 
-2. docker-compose logs --help
+2. Available options in docker-compose:
+    ```bash
+    docker-compose logs --help
     - lists the available options
+    ```
 
-3. docker logs <container_id>
+3. To check logs of a particlar container:
+    ```bash
+    docker logs <container_id>
     - views the logs of a particular container
+    ```
 
-lesson66 - Publishing Changes
+#### lesson66 - Publishing Changes
 
 1. Mapping a volume like we did earlier
 
-lesson67 - Migrating the Database
+#### lesson67 - Migrating the Database
 
 ??
 
-lesson68 - Running Tests
+#### lesson68 - Running Tests
 
 ??
 
@@ -1734,32 +1755,32 @@ Section 7 - Deployment
 
 1. How to deploy our dockerised applications
 
-lesson70 - Deployment Options
+#### lesson70 - Deployment Options
 
-1. To deploy our dockerised applications, we have 2 options:
-    a. Single-host deployment
+1. To deploy our dockerised applications, we have 2 options: \
+    a. Single-host deployment \
     b. Cluster deployment
 
-2. Single-host deployment:
+2. Single-host deployment: \
     If our server goes offline our application will not be accessible.
     If our application goes rapidly our single server may not be able 
     to handle this load.
 
-3. Clusters deployment:
+3. Clusters deployment: \
     With clusters, we get high availability and scalability.
 
 
-lesson71 - Get a Virtual Private Server
+#### lesson71 - Get a Virtual Private Server
 
 VPS
 
-1. Options:
-    a. Digital Ocean
-    b. GCP
-    c. Azure
+1. Options: \
+    a. Digital Ocean \
+    b. GCP \
+    c. Azure \
     d. AWS
 
-lesson72 - Installing Docker Machine
+#### lesson72 - Installing Docker Machine
 
 1. Once we have a server, we need a tool docker machine to talk to the 
     docker engine on that server this way we can execute docker commands 
@@ -1767,23 +1788,25 @@ lesson72 - Installing Docker Machine
     server on our server.
 
     It is just copy the command and execute on cli
-
+    ```bash
     docker-machine --version
     - prints the version
+    ```
 
+#### lesson73 - Provisioning a host
 
-lesson73 - Provisioning a host
-
-lesson74 - Connecting to the Host
+#### lesson74 - Connecting to the Host
 
 ssh to connect
 
-lesson75 -  Defining the Production configuration
+#### lesson75 -  Defining the Production configuration
 
-lesson76 - Reducing the Image Size
+#### lesson76 - Reducing the Image Size
 
-1. We can add a label by adding 'AS'. E.g.,
+1. We can add a label by adding 'AS'. \
+E.g.,
+    ```bash
     FROM node:14.16 AS build-stage
+    ```
 
-
-lesson77 - Deploying the Application.
+#### lesson77 - Deploying the Application.
