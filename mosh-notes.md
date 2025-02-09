@@ -241,7 +241,7 @@ Now, we  can install nano by typing:
 apt install nano
     - installs nano from the package list
 ```
-Take Away: 
+Take Away: \
 So, before installing any package, make sure you have updated the package db
 
 9. To remove any package:
@@ -254,7 +254,7 @@ apt remove nano
 1. In linux, we have the root directory on top which is represented as "/". \
 Below that, we have some standard directories:
 
-```bash
+    ```bash
     / 
     bin 
     boot 
@@ -265,7 +265,7 @@ Below that, we have some standard directories:
     lib 
     var 
     proc 
-```
+    ```
 Just a brief explaination:
     
 `/`    - root
