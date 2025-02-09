@@ -937,15 +937,17 @@ A Dockerfile is a list of instructions
     a. Dockerfile: 
     ```bash
     FROM node:14.16.0-alpine3.13 
-    (*just an example)
+    - this is just an example
     ```
 
     b. Build the image with following command:
+    ```bash
     docker build -t <tag-a-name> <Dockerfile_path>
     docker build -t react-app .
     - '-t' is used to tag
     - 'react-app' is the tag name
     - '.' is the path where Dockerfile is located. Here, it is current
+    ```
 
     c. Run the container:
         docker run -it <image_name>
