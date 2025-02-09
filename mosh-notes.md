@@ -1056,7 +1056,7 @@ A Dockerfile is a list of instructions
     - create the file as it is (no extension etc.)
     - this is similar to '.gitignore' file
 
-    
+
     So, suppose we have a directory we want docker engine to ignore. We
     open the '.dockerignore' file and simply type the name of the 
     directory followed by '/' forward slash. E.g.,
@@ -1065,18 +1065,17 @@ A Dockerfile is a list of instructions
     `node_modules/`
     - this will ignore the above directory.
 
-Here are few terms we should read. Taken from Google Gemini:
-    Docker Engine (dockerd): The behind-the-scenes boss, a program that 
-        builds, runs, and manages your containers. It's like a factory 
-        for creating and controlling your containerized applications.
-    Docker Client (docker): Your interface to the engine. It's the 
-        command-line tool you use to give orders (build, run, stop) to 
-        the Docker engine. Think of it as the remote control for the 
-        container factory.
-    Docker Daemon: Always on duty, this program listens for instructions 
-        from the client and carries them out using the Docker engine. 
-        It's the tireless worker that builds and manages your containers 
-        based on the client's commands.
+Here are few terms we should read. \
+Taken from Google Gemini: \
+    `Docker Engine (dockerd)`: \
+    The behind-the-scenes boss, a program that builds, runs, and manages your containers. \
+    It's like a factory for creating and controlling your containerised applications. \
+    `Docker Client (docker)`: \
+    Your interface to the engine. It's the command-line tool you use to give orders (build, run, stop) to the Docker engine. \
+    Think of it as the remote control for the container factory.
+    `Docker Daemon`: 
+    Always on duty, this program listens for instructions from the client and carries them out using the Docker engine. 
+    It's the tireless worker that builds and manages your containers based on the client's commands.
 
 
 lesson35 - Running Commands
