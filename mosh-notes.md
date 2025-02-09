@@ -120,7 +120,8 @@ E.g.,
     docker run -it ubuntu
         -runs a container in interactive mode.
     ```
----------------------
+
+
 ### Henceforth, lesson-wise
 
 #### lesson12- Linux Distributions
