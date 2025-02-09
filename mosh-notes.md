@@ -970,12 +970,12 @@ A Dockerfile is a list of instructions
 
 
 5. To check all the images we can type:
-```bash
+    ```bash
     docker images 
     or 
     docker image ls
     - lists all the docker images
-```
+    ```
 
 #### lesson33 - Copying Files and Directories
 
