@@ -268,15 +268,15 @@ Below that, we have some standard directories:
     ```
 Just a brief explaination:
     
-`/`    - root
-`bin`  - contains mainly binary files or programmes
-`boot` - contains files related to booting
-`dev`  - short for devices (Yes, in linux everything is a file, including directories)
-`etc`  - General belief is it stands of Editable Text Config (configuration files)
-`home` - This is where home directories of users are stored. Each user is going to have their home directory here.
-`root` - root directory for the root user. Only the root user will be able to see this
-`lib`  - used for keeping library files like software library dependencies
-`var`  - stands for variable. This is where files are updated frequently like log files, application data, etc.
+`/`    - root \
+`bin`  - contains mainly binary files or programmes \
+`boot` - contains files related to booting \
+`dev`  - short for devices (Yes, in linux everything is a file, including directories) \
+`etc`  - General belief is it stands of Editable Text Config (configuration files) \
+`home` - This is where home directories of users are stored. Each user is going to have their home directory here. \
+`root` - root directory for the root user. Only the root user will be able to see this \
+`lib`  - used for keeping library files like software library dependencies \
+`var`  - stands for variable. This is where files are updated frequently like log files, application data, etc. \
 `proc` - contains files represent running processes. (Yes, even processes are files in linux)
 
 #### lesson16: Navigating the File System
