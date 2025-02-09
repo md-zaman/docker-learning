@@ -1634,7 +1634,7 @@ An application with frontend and backend and it has a docker-compose.yml
 
 #### lesson62 - Building Images
  
-1. Use the following command to explore options in docker compose: \
+1. Use the following command to explore options in docker compose: 
     ```bash
     docker-compose
     - lists all options
