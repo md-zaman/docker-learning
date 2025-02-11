@@ -88,7 +88,7 @@ A: A kernel manages the application and hardware resources.
 11. Linux is an opensource OS
 
 2. Using ubuntu on docker: \
-a. Instead of using "docker pull ubuntu" the shortcut can be: \
+a. Instead of using "docker pull ubuntu" the shortcut can be:
     ```bash
     docker run ubuntu 
     - (If the image exists then it will simply run but if it doesn't exists, 
@@ -391,7 +391,7 @@ nano file_name1.txt
 cat
     - displays what is inside the file. It is short for concatenate
 ```
-4. Similar to "cat" command we have the following command to view large files. Here, we don't have to scroll and see our file, instead, we get an interface with some options. We can simply type: \
+4. Similar to "cat" command we have the following command to view large files. Here, we don't have to scroll and see our file, instead, we get an interface with some options. We can simply type: 
 ```bash
 more
     - displays what is inside the file
@@ -467,7 +467,8 @@ grep -i root /etc/passwd
 grep -i hello file1.txt file2.txt
     - or
 grep -i hello file*
-    - means the same thing as above. We have used a wildcard which means any file having "file" written in the beginning and whatever after that.
+    - means the same thing as above. We have used a wildcard which means any file having 
+    "file" written in the beginning and whatever after that.
 ```
 
 2. To search in a directory:
@@ -545,7 +546,7 @@ ls /bin | less
 ls /bin | head -n 5
     - displays 5 lines from the head (top)
 ```
-6. Splitting commands in multiple lines. We can use '\' to end the line and after that we can press enter and write other commands. This ensure that whenever we have a long command we don't have to scroll horizontally to go through the entire command. \
+6. Splitting commands in multiple lines. We can use `\` to end the line and after that we can press enter and write other commands. This ensure that whenever we have a long command we don't have to scroll horizontally to go through the entire command. \
 So, instead of:
 ```bash
 mkdir hello ; cd hello ; echo done
